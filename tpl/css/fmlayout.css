@@ -1,0 +1,25 @@
+body{
+ color: 000;
+}
+
+.content {
+    margin: 0 auto;
+    padding: 0 2em;
+    max-width: 800px;
+    margin-bottom: 50px;
+    line-height: 1.6em;
+}
+
+.information{
+	border: 2px solid;
+	border-radius: 25px;
+	padding: 0 2em;
+}
+
+.information p{
+	font-size: 1.5em;
+}
+
+.play-button{
+	padding: auto;
+}
