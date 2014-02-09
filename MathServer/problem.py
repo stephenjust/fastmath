@@ -32,11 +32,14 @@ class problem(object):
 		the correct answer 
 		MathInput is a string
 		"""
-		if MathInput is None:
-			return False
-		if expand(parse_expr(MathInput)) == expand(self.correct_answer):
-			return True
-		else:
+		try:
+			if MathInput is None:
+				return False
+			if expand(parse_expr(MathInput)) == expand(self.correct_answer):
+				return True
+			else:
+				return False
+		except:
 			return False
               
 	def get_statement(self):

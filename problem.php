@@ -11,6 +11,12 @@ session_start();
 
 require_once('libs/Smarty.class.php');
 
+$smarty = new Smarty;
+
+$smarty->caching = false;
+$smarty->cache_lifetime = 120;
+$smarty->assign('error', NULL);
+
 if (empty($_SESSION['comic_seed'])) $_SESSION['comic_seed'] = rand();
 if (empty($_SESSION['comic_step'])) $_SESSION['comic_step'] = 0;
 if (empty($_SESSION['questions_solved'])) $_SESSION['questions_solved'] = 0;
@@ -22,22 +28,25 @@ $script_path = '/srv/http/fastmath/MathServer/server.py';
 
 $fpath = '/srv/http/fastmath/tmp/'.time().'.xml';
 $fh = fopen($fpath, 'w');
-if (!fwrite($fh, $_POST['userinput'])) {
-        print("error");
-}
+fwrite($fh, $_POST['userinput']);
 fclose($fh);
 
 // call python script
 $command = sprintf("bash -c \"python2 %s --random-seed %s --problem-type %s --user-input %s\"",
         $script_path, escapeshellarg($_GET['randomseed']), escapeshellarg($_GET['type']), escapeshellarg($fpath));
-print(htmlspecialchars($command));
 $result = exec($command);
 $out = json_decode($result);
 
-$smarty = new Smarty;
-
-$smarty->caching = false;
-$smarty->cache_lifetime = 120;
+if ($out->correct) {
+    $_GET['randomseed'] = rand(0, 10000);
+    $command = sprintf("bash -c \"python2 %s --random-seed %s --problem-type %s --user-input %s\"",
+        $script_path, escapeshellarg($_GET['randomseed']), escapeshellarg($_GET['type']), escapeshellarg($fpath));
+    $result = exec($command);
+    $out = json_decode($result);
+    $_SESSION['questions_solved']++;
+} elseif ($_POST['userinput'] != false) {
+    $smarty->assign('error', 'Incorrect response');
+}
 
 // print out comic
 // i.e. pass a seed to the comic generator script
