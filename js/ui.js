@@ -18,9 +18,9 @@ function play() {
     });
 }
 
-function problemSubmit() {
+function problemSubmit(seed, type) {
     $('#content').html(loadingHtml);
-    $.ajax('./problem.php', {
+    $.ajax('./problem.php?randomseed=' + encodeURI(seed) + '&amp;type=' + encodeURI(type), {
         error: function(jqx, stat, err) {
             $('#content').html('Failwhale');
         },
