@@ -110,3 +110,10 @@ color:#fff
 	border-radius: 4px;
 	background: rgb(119, 147, 60);
 }
+
+.submit{
+	color: white;
+	border-radius: 4px;
+	background: rgb(119, 147, 60);
+	margin: 0px auto;
+}
