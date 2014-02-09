@@ -84,10 +84,10 @@ function drawComic(seed, step) {
     if (step >= 3) {
         drawManRight(seed);
     }
-    if (step === 4) {
+    if (step >= 4) {
         writeQuestion(seed);
     }
-    if (step === 5) {
+    if (step >= 5) {
         writeAnswer(seed);
     }
     if (step >= 6) {
