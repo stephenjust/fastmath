@@ -65,11 +65,16 @@ var decorations = [
     
 ];
 
-var c1 = document.getElementById("comic-canvas1");
-var ctx1 = c1.getContext("2d");
+var c1;
+var ctx1;
 //var c2 = document.getElementById("comic-canvas2");
 //var ctx2 = c2.getContext("2d");
 Math.seed = 3;
+
+function drawCanvas(seed, step) {
+    c1 = document.getElementById("comic-canvas1");
+    ctx1 = c1.getContext("2d");
+}
 
 // From http://indiegamr.com/generate-repeatable-random-numbers-in-js/
 // in order to work 'Math.seed' must NOT be undefined,

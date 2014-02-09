@@ -54,5 +54,7 @@
 
             </div>
         </div>
+        
     </body>
+    <script type="text/javascript" src="js/comic.js"></script>
 </html>
