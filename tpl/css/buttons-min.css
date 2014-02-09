@@ -102,5 +102,11 @@ color:#fff
 }
 
 .button-xlarge {
-    font-size: 125%;
+    font-size: 200%;
+}
+
+.play{
+	color: white;
+	border-radius: 4px;
+	background: rgb(119, 147, 60);
 }

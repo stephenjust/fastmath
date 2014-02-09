@@ -21,7 +21,8 @@ body{
 }
 
 .play-button{
-	padding: auto;
+	width: 200px;
+	margin: 20px auto;
 }
 
 .canvas-wrapper{
