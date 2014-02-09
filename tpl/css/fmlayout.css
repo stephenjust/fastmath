@@ -72,3 +72,8 @@ body{
 	height: 100px;
 	width: 100px;
 }
+
+#end-score{
+	font-size: 50px;
+	color: rgb(55, 96, 146);
+}
