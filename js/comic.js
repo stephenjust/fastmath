@@ -5,75 +5,110 @@
  */
 
 var backgrounds = new Array(
-    "http://localhost/fastmath/tpl/comic-images/background-1.png",
-    "http://localhost/fastmath/tpl/comic-images/background-1.png"
+    "background1",
+    "background2",
+	"background3",
+	"background4",
+	"background5"
 );
-var stringFile = "";
-var characters = [
-    
-];
+
+var lefts = new Array(
+    "manLeft1",
+	"manLeft2",
+	"manLeft3",
+	"manLeft4"
+);
+
+var rights = new Array(
+    "manRight1",
+	"manRight2",
+	"manRight3",
+	"manRight4"
+);
+
+var questions = new Array(
+	"Why do hot dogs come in packages of 10 and hot dog buns come in packages of 12?",
+	"Why is my life so full of despair?",
+	"Is it illegal to drive through an intersection backwards?",
+	"I wonder if i’m an immediate suspect?",
+	"Who monitors these?",
+	"Is it Amdahl’s Law?",
+	"Can I have more paper?",
+	"Who put that comment there?"
+);
+
+var answers = new Array(
+	"If you read a book for once you would understand.",
+	"Because of universal health care.",
+	"Because of Stephen Harper",
+	"When did this become a valid concern?",
+	"That’s just a cron job",
+	"It’s a perl script.",
+	"I feel for those people.",
+	"Using an eval() is like picking up something off the ground and putting it in your mouth"
+);
+
+var punchlines = new Array(
+	"Bro do you even lift?",
+	"I knew I should have broughten my tool box.",
+	"Dude, you have cobol programmer written all over you.",
+	"Prove it.",
+	"The Germans have discovered PHP",
+	"There’s parts that aren’t really structured.",
+	"English for Engineers.",
+	"It started with a lot of positive.",
+	"We’re running this Ohaton style.",
+	"This almost makes conversational sense."
+);
+
 var decorations = [
     
 ];
+
+var c1 = document.getElementById("comic-canvas1");
+var ctx1 = c1.getContext("2d");
+//var c2 = document.getElementById("comic-canvas2");
+//var ctx2 = c2.getContext("2d");
+Math.seed = 3;
 
 // From http://indiegamr.com/generate-repeatable-random-numbers-in-js/
 // in order to work 'Math.seed' must NOT be undefined,
 // so in any case, you HAVE to provide a Math.seed
 Math.seededRandom = function(max, min) {
-    if (max === min) return max;
-    
-    max = max || 1;
-    min = min || 0;
- 
-    Math.seed = (Math.seed * 9301 + 49297) % 233280;
-    var rnd = Math.seed / 233280;
- 
-    return min + rnd * (max - min);
-};
+	var rnd = max - min;
+	
+	return Math.seed % rnd;
+}
 
 
-function drawComic(seed, step) {
-    Math.seed = seed;
-    var stage = new Kinetic.Stage({
-        container: 'comic',
-        width: 800,
-        height: 500
-    });
-    
-    var bgLayer = new Kinetic.Layer();
-    var fgLayer = new Kinetic.Layer();
-    var textLayer = new Kinetic.Layer();
-    
-    var bgImage = backgrounds[Math.seededRandom(0, backgrounds.length-1)];
-    var imageObj = new Image();
-    imageObj.onload = function() {
-      var yoda = new Kinetic.Image({
-        x: 0,
-        y: 0,
-        image: imageObj,
-        width: 960,
-        height: 280
-      });
+function drawBackground(seed) {
+    Math.seed = seed % 500;
+    var bgImage = backgrounds[Math.seededRandom(0, backgrounds.length)];
+	var bg = document.getElementById(bgImage);
+	ctx1.drawImage(bg,0,200);
+}
 
-      // add the shape to the layer
-      bgLayer.add(yoda);
-    };
-    imageObj.src = bgImage;
+function drawManLeft(seed){
+	Math.seed = seed % 500;
+	var manLeft = lefts[Math.seededRandom(0, lefts.length)]
+	var ml = document.getElementById(manLeft);
+	ctx1.drawImage(ml,100,100);
+}
 
-    var rect = new Kinetic.Rect({
-        x: 239,
-        y: 75,
-        width: 100,
-        height: 50,
-        fill: 'green',
-        stroke: 'black',
-        strokeWidth: 4
-    });
+function drawManRight(seed){
+	Math.seed = seed % 500;
+	var manRight = rights[Math.seededRandom(0, rights.length)]
+	var mr = document.getElementById(manRight);
+	ctx1.drawImage(mr,500,100);
+}
 
-    fgLayer.add(rect);
-
-    // add the layer to the stage
-    stage.add(bgLayer);
-    stage.add(fgLayer);
-    //stage.add(textLayer);
+function writeQuestion(seed){
+	Math.seed = seed % 500;
+	var question = questions[Math.seededRandom(0, questions.length)];
+	ctx1.beginPath();
+	ctx1.moveTo(200, 100);
+	ctx1.lineTo(300, 35);
+	ctx1.stroke();
+	ctx1.font="10px Verdana";
+	ctx1.fillText(question, 300, 30);
 }
