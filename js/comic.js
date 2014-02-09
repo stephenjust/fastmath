@@ -23,7 +23,8 @@ var rights = new Array(
     "manRight1",
 	"manRight2",
 	"manRight3",
-	"manRight4"
+	"manRight4",
+	"manRight5"
 );
 
 var questions = new Array(

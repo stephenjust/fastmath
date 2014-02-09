@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-var loadingHtml = '<div id="loader"><img src="tpl/logos/octocat.jpeg width="100px" /><br /><img src="tpl/graphics/ajax-loader.gif" width="100px" /><br />Loading</div>';
+var loadingHtml = '<div id="loader"><img src="tpl/logos/octocat.jpg width="100px" /><br /><img src="tpl/graphics/ajax-loader.gif" width="100px" /><br />Loading</div>';
 
 function play() {
     $('#content').html(loadingHtml);
