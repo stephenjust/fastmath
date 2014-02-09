@@ -20,7 +20,7 @@ $smarty->assign('error', NULL);
 if (empty($_SESSION['comic_seed'])) $_SESSION['comic_seed'] = rand();
 if (empty($_SESSION['comic_step'])) $_SESSION['comic_step'] = 0;
 if (empty($_SESSION['questions_solved'])) $_SESSION['questions_solved'] = 0;
-if (empty($_GET['type'])) $_GET['type'] = 'axIntegration';
+if (empty($_GET['type'])) $_GET['type'] = getRandomProblemType();
 if (empty($_GET['randomseed'])) $_GET['randomseed'] = rand(0, 10000);
 if (empty($_POST['userinput'])) $_POST['userinput'] = false;
 
@@ -38,7 +38,9 @@ $result = exec($command);
 $out = json_decode($result);
 
 if ($out->correct) {
+    sleep(0.1);
     $_GET['randomseed'] = rand(0, 10000);
+    $_GET['type'] = getRandomProblemType();
     $command = sprintf("bash -c \"python2 %s --random-seed %s --problem-type %s --user-input %s\"",
         $script_path, escapeshellarg($_GET['randomseed']), escapeshellarg($_GET['type']), escapeshellarg($fpath));
     $result = exec($command);
@@ -59,3 +61,10 @@ $smarty->assign('math', array(
 
 $smarty->display('tpl/problem.tpl');
 
+function getRandomProblemType() {
+    $array = array(
+        'axIntegration',
+        'polynomialDifferentiation');
+    $ind = array_rand($array);
+    return $array[$ind];
+}

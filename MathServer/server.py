@@ -42,13 +42,12 @@ def problem_response(p, input_val):
 	return: True or False
 	"""
 	if p is None: return None
-	
 	p.eval_prob_statement()
 	return p.eval_result(input_val)	
 
 def parse_math_ml(text):
 	try:
-		if text is None or len(text) == 0: return None
+		if text is None or text == "None" or len(text) == 0: return None
 		styledoc = libxml2.parseFile("/srv/http/fastmath/MathServer/xslt/mmltex.xsl")
 		style = libxslt.parseStylesheetDoc(styledoc)
 		doc = libxml2.parseFile(text);
@@ -73,6 +72,7 @@ args = parser.parse_args()
 # random_seed
 # userinput
 # problem_type
+
 random_seed = int(args.random_seed)
 user_input = str(args.user_input)
 problem_type = str_to_class(args.problem_type)
@@ -86,11 +86,10 @@ prb = get_problem(random_seed, problem_type)
 latex_problem = prb.get_statement()
 # latex_problem = get_problem(random_seed, eval('problem_type'))
 
-if user_input != "" : 
+if user_input is not None and user_input != "" : 
 	correct = problem_response(prb, parse_math_ml(user_input))
 else:
 	correct = False
-
 #Need {random_seed, Latex_Statment, Correct}
 
 
