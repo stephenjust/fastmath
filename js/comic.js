@@ -114,6 +114,31 @@ function writeQuestion(seed){
 	ctx1.moveTo(200, 100);
 	ctx1.lineTo(300, 35);
 	ctx1.stroke();
+	ctx1.textAlign="start";
 	ctx1.font="10px Verdana";
 	ctx1.fillText(question, 300, 30);
+}
+
+function writeAnswer(seed){
+	Math.seed = seed % 500;
+	var answer = answers[Math.seededRandom(0, answers.length)];
+	ctx1.beginPath();
+	ctx1.moveTo(550, 100);
+	ctx1.lineTo(550, 50);
+	ctx1.stroke();
+	ctx1.textAlign="end";
+	ctx1.font="10px Verdana";
+	ctx1.fillText(answer, 600, 45);
+}
+
+function writePunchline(seed){
+	Math.seed = seed % 500;
+	var punchline = punchlines[Math.seededRandom(0, punchlines.length)];
+	ctx1.beginPath();
+	ctx1.moveTo(210, 100);
+	ctx1.lineTo(320, 65);
+	ctx1.stroke();
+	ctx1.textAlign="start";
+	ctx1.font="10px Verdana";
+	ctx1.fillText(punchline, 300, 60);
 }
