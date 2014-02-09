@@ -1,0 +1,4 @@
+Run this to get a list of all the problem types
+
+ ls *py | tr '\n' '\n' | grep -v 'server.py' | grep -v 'problem.py' | grep -v problem_types.py
+
