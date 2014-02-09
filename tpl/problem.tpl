@@ -25,7 +25,7 @@
                                 <div class="pure-g-r">
                                         <div class="pure-u-2-3">
                                                 <div id="answer">
-                                                        <textarea id="formula1" class="mathdoxformula"></textarea>
+                                                        <textarea id="formula1" class="mathdoxformula">{$response}</textarea>
                                                 </div>
                                         </div>
                                         <div class="pure-u-1-3">

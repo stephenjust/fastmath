@@ -15,6 +15,7 @@ $smarty = new Smarty;
 
 $smarty->caching = false;
 $smarty->assign('error', NULL);
+$smarty->assign('response', NULL);
 
 if (empty($_SESSION['comic_seed'])) $_SESSION['comic_seed'] = rand(0,1000);
 if (empty($_SESSION['comic_step'])) $_SESSION['comic_step'] = 0;
@@ -54,6 +55,8 @@ if ($out->correct) {
     $_SESSION['comic_step'] += 1;
 } elseif ($_POST['userinput'] != false) {
     $smarty->assign('error', 'Incorrect response');
+    if (!empty($_POST['fieldval']))
+        $smarty->assign('response', htmlspecialchars($_POST['fieldval']));
 }
 
 // print out comic

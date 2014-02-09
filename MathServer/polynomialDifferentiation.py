@@ -9,7 +9,7 @@ class polynomialDifferentiation(problem):
 	""" Expressions of the form d/dx(H x**k + H x**(K+H)) """
 
 	#Coefficient sets H, K
-	Hset = [i for i in range(0,15)]
+	Hset = [i for i in range(0,5)]
 	Kset = [i for i in range(0,6) ]
 
 	x = Symbol('x')

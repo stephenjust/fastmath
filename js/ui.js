@@ -26,7 +26,8 @@ function problemSubmit(seed, type) {
         url: './problem.php?randomseed=' + encodeURI(seed)
             + '&amp;type=' + encodeURI(type),
         data: {
-            'userinput': org.mathdox.formulaeditor.FormulaEditor.getEditorByTextArea("formula1").getMathML()
+            'userinput': org.mathdox.formulaeditor.FormulaEditor.getEditorByTextArea("formula1").getMathML(),
+            'fieldval': org.mathdox.formulaeditor.FormulaEditor.getEditorByTextArea("formula1").value
         },
         error: function(jqx, stat, err) {
             $('#content').html('Failwhale');
