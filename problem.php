@@ -20,11 +20,18 @@ if (empty($_POST['userinput'])) $_POST['userinput'] = false;
 
 $script_path = '/srv/http/fastmath/MathServer/server.py';
 
+$fpath = '/srv/http/fastmath/tmp/'.time().'.xml';
+$fh = fopen($fpath, 'w');
+if (!fwrite($fh, $_POST['userinput'])) {
+        print("error");
+}
+fclose($fh);
+
 // call python script
-ob_start();
-system(sprintf("python2 %s --random-seed %s --problem-type %s --user-input %s",
-        $script_path, escapeshellarg($_GET['randomseed']), escapeshellarg($_GET['type']), escapeshellarg($_POST['userinput'])));
-$result = ob_get_clean();
+$command = sprintf("bash -c \"python2 %s --random-seed %s --problem-type %s --user-input %s\"",
+        $script_path, escapeshellarg($_GET['randomseed']), escapeshellarg($_GET['type']), escapeshellarg($fpath));
+print(htmlspecialchars($command));
+$result = exec($command);
 $out = json_decode($result);
 
 $smarty = new Smarty;

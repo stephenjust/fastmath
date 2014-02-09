@@ -20,7 +20,13 @@ function play() {
 
 function problemSubmit(seed, type) {
     $('#content').html(loadingHtml);
-    $.ajax('./problem.php?randomseed=' + encodeURI(seed) + '&amp;type=' + encodeURI(type), {
+    $.ajax({
+        type: 'POST',
+        url: './problem.php?randomseed=' + encodeURI(seed)
+            + '&amp;type=' + encodeURI(type),
+        data: {
+            'userinput': org.mathdox.formulaeditor.FormulaEditor.getEditorByTextArea("formula1").getMathML()
+        },
         error: function(jqx, stat, err) {
             $('#content').html('Failwhale');
         },

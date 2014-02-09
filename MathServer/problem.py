@@ -1,6 +1,9 @@
 #!/usr/bin/python2.7
 
 from sympy import *
+from sympy.parsing.sympy_parser import parse_expr
+import libxml2
+import libxslt
 
 class problem(object):
 	""" Parent Class for all problem_types """
@@ -8,6 +11,7 @@ class problem(object):
 	
 	problem_statement = 0
 	random_seed = 0
+	correct_answer = None;
 	def __init__(self, random_seed):
 		self.random_seed = random_seed
 		pass
@@ -28,9 +32,9 @@ class problem(object):
 		the correct answer 
 		MathInput is a string
 		"""
-		if MathInput == None:
+		if MathInput is None:
 			return False
-		if parse_expr(MathInput) == self.correct_answer:
+		if expand(parse_expr(MathInput)) == expand(self.correct_answer):
 			return True
 		else:
 			return False

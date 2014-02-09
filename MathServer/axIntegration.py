@@ -2,6 +2,7 @@
 
 from problem import *
 from sympy.parsing.sympy_parser import parse_expr
+from sympy import *
 import random
 
 class axIntegration(problem):
@@ -13,7 +14,6 @@ class axIntegration(problem):
 
 	x = Symbol('x')
 	problem_statement = 0
-	correct_answer = 0
 
 	def __init__(self, random_seed):
 		"""Initializes the problem statement d/dx(H x**K + H x**(K+H) ) """
@@ -24,7 +24,7 @@ class axIntegration(problem):
 		K = self.Kset[coefficient_id % len(self.Kset) ]		
 		x = self.x
 		self.problem_statement =  Integral(H**x  ,x)
-		pass
+
 
 
 	
