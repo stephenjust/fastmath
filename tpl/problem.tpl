@@ -31,7 +31,7 @@
                                         <div class="pure-u-1-3">
                                                 <div id="incorrect-answer">
                                                     {if $error}
-														<img src="logos/incorrect.png" />
+														<img src="tpl/logos/incorrect.png" />
 													{/if}
                                                 </div>
                                         </div>
