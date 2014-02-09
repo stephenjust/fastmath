@@ -12,7 +12,8 @@
         <link rel="stylesheet" href="tpl/css/grids-min.css">
         <link rel="stylesheet" href="tpl/css/menus-min.css">
         <link rel="stylesheet" href="tpl/css/fmlayout.css">
-
+        <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+        <script type="text/javascript" src="js/ui.js"></script>
     </head>
     <body>
         <div id="content">
@@ -40,7 +41,7 @@
                 </div>
             </div>
             <div class="play-button">
-                <button class="button-xlarge pure-button play" onclick="mysteryfunction()">Play Now!</button>
+                <button class="button-xlarge pure-button play" onclick="javascript:play();">Play Now!</button>
             </div>
             <div>
 
