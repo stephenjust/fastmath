@@ -34,23 +34,26 @@ var questions = new Array(
 	"Who monitors these?",
 	"Is it Amdahl’s Law?",
 	"Can I have more paper?",
-	"Who put that comment there?"
+	"Who put that comment there?",
+	"If a tree falls in the forest and no one hears.  Does it make a sound?"
 );
 
 var answers = new Array(
 	"If you read a book for once you would understand.",
-	"Because of universal health care.",
-	"Because of Stephen Harper",
+	"Many great philosophers have pondered that question.",
 	"When did this become a valid concern?",
 	"That’s just a cron job",
 	"It’s a perl script.",
 	"I feel for those people.",
-	"Using an eval() is like picking up something off the ground and putting it in your mouth"
+	"Using an eval() is like picking up something off the ground and putting it in your mouth",
+	"That solution can only be found through the use of lego",
+	"Forty-Two",
+	"I think you need another energy drink"
 );
 
 var punchlines = new Array(
 	"Bro do you even lift?",
-	"I knew I should have broughten my tool box.",
+	"I knew I should have brought my tool box.",
 	"Dude, you have cobol programmer written all over you.",
 	"Prove it.",
 	"The Germans have discovered PHP",
@@ -58,7 +61,9 @@ var punchlines = new Array(
 	"English for Engineers.",
 	"It started with a lot of positive.",
 	"We’re running this Ohaton style.",
-	"This almost makes conversational sense."
+	"This almost makes conversational sense.",
+	"You smell nice",
+	"I think we need to make a Venn Diagram"
 );
 
 var decorations = [
