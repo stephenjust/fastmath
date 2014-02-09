@@ -14,6 +14,7 @@ function play() {
         },
         success: function(data, status, jqx) {
             $('#content').html(data);
+            startTimer();
         }
     });
 }
@@ -42,3 +43,31 @@ function refreshMath() {
     var textarea = document.getElementById("formula1");
     org.mathdox.formulaeditor.FormulaEditor.updateByTextAreas(textarea);
 }
+
+
+var started = 0;
+var start = 0;
+var elapsed = '0.0';
+
+function startTimer() {
+    start = new Date().getTime(),
+    elapsed = '0.0';
+    started = 1;
+}
+
+window.setInterval(function()
+{
+    if (!started) return;
+    var time = new Date().getTime() - start;
+
+    elapsed = Math.floor(time / 100) / 10;
+
+    var clock = Math.round(60 - elapsed);
+    if (clock <= 0) clock = "Time's up!";
+    $('#time').html(clock);
+    if (clock === "Time's up!") {
+        $('#problem-submit').attr('onclick','').unbind('click');
+        $('#problem-submit').html("Time Up");
+    }
+
+}, 100);

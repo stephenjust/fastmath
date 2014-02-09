@@ -40,7 +40,7 @@
                         <div id="time">
                         </div>
                         <div class="submit-button">
-                                <button class="button-xlarge pure-button submit" onclick="javascript:problemSubmit({$math.seed}, '{$math.type}');">Submit</button>
+                                <button id="problem-submit" class="button-xlarge pure-button submit" onclick="javascript:problemSubmit({$math.seed}, '{$math.type}');">Submit</button>
                         </div>
                 </div>
         </div>
