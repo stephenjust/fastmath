@@ -1,0 +1,255 @@
+<html>
+
+  <head>
+
+    <title>MathDox formula editor</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <script type='text/javascript'>
+      if (org) {
+        alert("org already defined, could not set options");
+      } else {
+        var org = { mathdox: { formulaeditor: { options: {
+	  dragPalette: true,
+          fontSize: 150,
+	  //,paletteURL : "http://localhost/formulaeditor/org/mathdox/formulaeditor/palette2.xml"
+	  inputStyle: "border: 10px solid #99F; verticalAlign:middle; "+
+	    "cursor:text; padding: 0px;",
+	  paletteStyle: "border: 2px solid green; verticalAlign:middle; "+
+	    "cursor:text; padding: 5px; background-color: white"
+	}}}};
+      }
+    </script>
+
+    <script type='text/javascript' src='org/mathdox/formulaeditor/main.js'>
+    </script>
+
+    <style type='text/css'>
+
+      #main {
+        background-color:#FFF;
+        width:50em;
+        font-family:sans-serif;
+      }
+
+      .code {
+        padding-left:2em;
+        font-family:monospace;
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <div id='main'>
+
+      <h3>MathDox formula editor</h3>
+
+      <h4>Demo</h4>
+
+      <textarea id='formula1' class='mathdoxformula mathdoxpalette' style='margin-right: 2em ; border:10px solid red;'>
+
+&lt;OMOBJ xmlns="http://www.openmath.org/OpenMath" version="2.0" cdbase="http://www.openmath.org/cd"&gt;
+  &lt;OMA&gt;
+    &lt;OMS cd="calculus1" name="defint"/&gt;
+    &lt;OMA&gt;
+      &lt;OMS cd="interval1" name="interval"/&gt;
+      &lt;OMF dec="-1.0"/&gt;
+      &lt;OMF dec="1.0"/&gt;
+    &lt;/OMA&gt;
+    &lt;OMBIND&gt;
+      &lt;OMS cd="fns1" name="lambda"/&gt;
+      &lt;OMBVAR&gt;
+        &lt;OMV name="x"/&gt;
+      &lt;/OMBVAR&gt;
+      &lt;OMA&gt;
+         &lt;OMS cd="transc1" name="sin"/&gt;
+	&lt;OMV name="x"/&gt;
+      &lt;/OMA&gt;
+    &lt;/OMBIND&gt;
+  &lt;/OMA&gt;
+&lt;/OMOBJ&gt;
+
+
+      </textarea>
+
+      <textarea id='formula2' class='mathdoxformula mathdoxpalette'>
+
+        &lt;OMOBJ>
+          &lt;OMI>-2&lt;/OMI>
+        &lt;/OMOBJ>
+
+      </textarea>
+
+      <h2>really short term todo list</h2>
+      <ul>
+        <li>parsing: 1/2*3/4 (not as expected, but correct)</li>
+        <li>parsing: 1/2-3/4 (incorrect)</li>
+        <li>install formulaeditor separately on dam02</li>
+        <li>check/update really short todo list</li>
+        <li>displaying mathml presentation in the page</li>
+	<li>xsl transformation using js or web service to product gap/...
+	output</li>
+        <li>look into integration with tinyMCE</li>
+      </ul>
+      <h2>short term todo list</h2>
+      <ul>
+        <li>manual: document editor1.input_box/editor1.*</li>
+        <li>manual: document classnames</li>
+        <li>manual: create manual for users (preferably in the webpage, list of symbols, linear input, meaning of symbols)</li>
+	<li>manual: create manual for authors (with palette.xml description,
+	options)</li>
+	<li>manual: create manual for programmers (describe keywords, and
+	integral/sum)</li>
+	<li>manual: first version in english, possibly i18n
+	support</li>
+	<li>manual: describe support we offer (what do people have to do before
+	asking us)</li>
+        <li>think about generic function application: (f+g)(x) (problem: (x+1)(x+2) )</li>
+        <li>add default css option</li>
+        <li>reorganize short term todo list</li>
+	<li>add support for all mathml symbols, add support for generic mathml
+	  described constructs</li>
+        <li>vertical align 1/2*3/2</li>
+        <li>--x doesn't parse... should this be fixed ? a--2 does parse ? is this desired</li>
+        <li>keywords slanted/italic</li>
+        <li>check slanted/italic symbols are described</li>
+        <li>list symbols available, add more symbols</li>
+        <li>look into extending with symbols not yet in sprite fonts (how)</li>
+        <li>formulate challenges</li>
+        <li>continual error indication (something red)</li>
+        <li>multiple objects in one formulaeditor using enter/newlines (as a list ?)</li>
+        <li>use classnames for formulaeditor html elements: mathdoxeditor
+        mathdoxtextarea mathdoxinput, ...</li>
+        <li>extra symbols: arith1.root: baselining (nicer display) </li>
+        <li>speed up: redrawing</li>
+        <li>speed up: cursor movement/inserting/deleting</li>
+        <li>key repetition (key stays pressed, count as multiple inputs?, does not seem to be a problem under windows)</li>
+        <li>speed up: code cleanup : move method to cache symbols/drawImage to
+        a function</li>
+        <li>palette: make palette floating with css</li>
+        <li>palette: toggle button</li>
+        <li>palette: add documentation about the custom palette</li>
+        <li>palette customization: depending on user ?</li>
+        <li>palette customization: depending on page ?</li>
+        <li>extending: preference classes</li>
+        <li>extending: documentation</li>
+        <li>keywords: further distinction between constants and applications (do not allow pi(a); maybe also disallow 1+sin;) support already present in keyword, not used to check for pi(a)</li>
+        <li>implement growing/shrinking matrices, vectors, lists, .... Idea: usepalette for growing/shrinking, as well as shortcuts</li>
+      </ul>
+      <h2>mid term todo list</h2>
+      <ul>
+	<li>calculator: make a calculator powered by the formula editor like WIMS has</li>
+        <li>show formulaeditor contents when printing</li>
+        <li>moving fe around (hans has an url ?)</li>
+        <li>option: placing the formulaeditor to the left</li>
+        <li>use variable size brackets for abs and list</li>
+        <li>getOpenMath/getMathML button</li>
+        <li>list of all supported symbols</li>
+        <li>slanted letters for variables</li>
+        <li>fix vertical navigation with 1/2 inside a matrix</li>
+        <li>palette: parse symbols from xml</li>
+        <li>some symbols in blue: keywords/parentheses</li>
+        <li>reload button</li>
+        <li>add != (neq) symbol</li>
+        <li>idea: backspace inside a fraction or a sqrt: quick delete</li>
+        <li>adding units (like keywords):harder because of prefixes and m/s (which is one symbol)</li>
+        <li>selection</li>
+        <li>tooltips</li>
+        <li>partial copy/paste</li>
+      </ul>
+
+      <h2>items done</h2>
+      <ul>
+	<li>added options: size (and scaling with ctrl +/-), palette.xml
+	origin (must be on the same site as the javascript)</li>
+        <li>added sum, product, integral</li>
+        <li>silent multiplication 3x becomes 3*x</li>
+        <li>automatically require all automatically generate files</li>
+        <li>create about popup with version</li>
+        <li>created first version of the conversion page: <a href='openmath.html'>openmath.html</a></li>
+        <li>added support for generic cd.name (from and to openmath)</li>
+        <li>added more space around cdot, -, + (no longer needed to make them larger)</li>
+        <li>added symbols support for \ and _</li>
+        <li>fixed palette on IE (race condition, which should only occur very rarely now, instead of everything palette.xml could be retrieved from cache)</li>
+        <li>fixed a bug with navigating out of a vector with the cursor</li>
+        <li>going left from a matrix: seems to work now</li>
+        <li>OM parser: xml comment <q>support</q> (all are ignored)</li>
+        <li>added working integer1.factorial</li>
+        <li>custom palette: how to enter blanks : editor1.palette_whitespace</li>
+        <li>custom palette:parsing (infix) OMS symbols inside a paletterow: solved with support for keyword types: constant, function, infix</li>
+        <li>custom palette: changed margin back to 10.0</li>
+        <li>custom palette: now loading from org/mathdox/formulaeditor/palette.xml file (openmath input)</li>
+        <li>custom palette: solved blocksymbol different sizes problem: implemented context dependent presentation</li>
+        <li>custom palette: describing entries by openmath</li>
+        <li>scalability: did enough of cmsy10 and &lt; &gt; pi</li>
+        <li>palette: make showing palette optional</li>
+        <li>now loading only a small number of files</li>
+        <li>automatic versioning from build.xml</li>
+        <li>no longer slow with multiple fields, see wortel: books/differentieren/exams/nl/exam1.xml</li>
+        <li>fix race condition in main.js (only start loading after main.js)</li>
+        <li>document.body.attachEvent race condition fixed (now setting a timeout if document.body does not exist yet)</li>
+        <li>ORBEON field update only on blur</li>
+        <li>sensible margin for palette/input canvas on mathdoxplayer</li>
+        <li>allow toggling palette on/of from mathdoxplayer</li>
+        <li>toggling palette on/off (per textarea)</li>
+        <li>MS IE: fixed problem with ORBEON forms updating </li>
+        <li>sqrt(x,2) when added from palette: problem with filling blue field, problem with clicking with sqrt(x,2)</li>
+        <li>extra symbols: list1.list (using curly brackets)</li>
+        <li>extra symbols: arith1.root: clicking and the right cursor
+          position</li>
+        <li>extra symbols: arith1.root: number above root</li>
+        <li>extra symbols: arith1.root: sqrt special case</li>
+        <li>extra symbols: arith1.root: convert to semantics</li>
+        <li>extra symbols: arith1.root: convert to openmath</li>
+        <li>add root(a,b) for bVa) NOTE: not root(a,b) but rt(a,b)</li>
+        <li>relations work again (was missing $require in FormulaEditor.js)</li>
+        <li>MS Internet Explorer support (first step)</li>
+        <li>fixed problems with inserting the wrong item from the palette (this was caused by problems with a PArray inside another PArray and ``reuse'' of colInfo and rowInfo</li>
+        <li>fixed problems with redrawing brackets (at least 3 heigh, custom length) </li>
+        <li>create a more suitable test website with todo list</li>
+        <li>palette: display vectors and matrices with (small) blocks</li>
+        <li>scalability</li>
+        <li>vector positioning like matrix</li>
+        <li>F5 do not reload with error</li>
+        <li>fix a index bug with inserting 2 symbols in an emptyrow (<b>done</b>)</li>
+        <li>check which other symbols to add(<b>done</b>)</li>
+        <li>palette: add symbols from mathadore : 2x2 matrix, 2x3 matrix 2 vector, 3 vector, sin(.) (<b>done</b></li>
+        <li>ignore spaces (<b>done</b>)</li>
+        <li>growing brackets (<b>done</b>)</li>
+        <li>palette: add palette to page (<b>done</b>)</li>
+        <li>palette: add some basic symbols to palette (<b>done</b>)</li>
+        <li>reload with F5 (<b>done</b>)</li>
+        <li>More space around multiplication-cdot, '-' (<b>done</b>)</li>
+        <li>palette: add symbol on 'current' position (<b>done</b>)</li>
+      </ul>
+
+      <p>
+        To see an OpenMath representation of the first formula above
+        <a href='javascript:alert(document.getElementById("formula1").value)'>
+        click here</a>. This demonstrates that a semantic tree of the formula
+        is stored, and not just a presentation tree. To see a MathML
+        representation of the first formula above 
+        <a href='javascript:alert(org.mathdox.formulaeditor.FormulaEditor.getEditorByTextArea("formula1").presentation.getSemantics().rule)'>semantics rule</a>.
+        <a href='javascript:alert(org.mathdox.formulaeditor.FormulaEditor.getEditorByTextArea("formula1").presentation.getSemantics().index)'>semantics index</a>.
+        <a href='javascript:alert(org.mathdox.formulaeditor.FormulaEditor.getEditorByTextArea("formula1").presentation.getSemantics().value)'>semantics value</a>.
+        <a href='javascript:alert(org.mathdox.formulaeditor.FormulaEditor.getEditorByTextArea("formula1").presentation.getSemantics().value[0])'>semantics value[0]</a>.
+        <a href='javascript:alert(org.mathdox.formulaeditor.FormulaEditor.getEditorByTextArea("formula1").presentation.getSemantics().value.getOpenMath())'>openmath</a>.
+        <a href='javascript:alert(org.mathdox.formulaeditor.FormulaEditor.getEditorByTextArea("formula1").presentation instanceof org.mathdox.formulaeditor.presentation.Row)'>is row</a>.
+        <a href='javascript:alert(org.mathdox.formulaeditor.FormulaEditor.getEditorByTextArea("formula1").presentation instanceof org.mathdox.formulaeditor.presentation.Matrix)'>is matrix</a>.
+        <a href='javascript:alert(org.mathdox.formulaeditor.FormulaEditor.getEditorByTextArea("formula1").presentation.children'>children</a>.
+        <a href='javascript:alert(org.mathdox.formulaeditor.FormulaEditor.getEditorByTextArea("formula1").presentation.children.length'>children length</a>.
+        <a href='javascript:alert(org.mathdox.formulaeditor.FormulaEditor.getEditorByTextArea("formula1").presentation.children[0] instanceof org.mathdox.formulaeditor.presentation.Row)'>child is row</a>.
+        <a href='javascript:alert(org.mathdox.formulaeditor.FormulaEditor.getEditorByTextArea("formula1").presentation.children[0] instanceof org.mathdox.formulaeditor.presentation.Matrix)'>child is matrix</a>.
+        <a href='javascript:alert(new org.mathdox.formulaeditor.presentation.Column(Symbol("1"),Symbol("2")))'>example matrix</a>.
+        <a href='javascript:alert(new org.mathdox.formulaeditor.presentation.Column(Symbol("1"),Symbol("2")).getSemantics())'>example matrix</a>.
+      </p>
+
+    </div>
+
+  </body>
+
+</html>

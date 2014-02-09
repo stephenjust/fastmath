@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ 
+  <head>
+
+    <title>MathDox formula editor</title>
+
+<!--    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>-->
+
+    <script type='text/javascript'>
+	org = { mathdox:{formulaeditor:{options:{dragPalette:true, paletteShow: "none", useBar:true}}}};
+    </script>
+    <script type='text/javascript' src='org/mathdox/formulaeditor/main.js'>
+    </script>
+
+    <style type='text/css'>
+
+      #main {
+        background-color:#FFF;
+        width:50em;
+        font-family:sans-serif;
+      }
+
+      .code {
+        padding-left:2em;
+        font-family:monospace;
+      }
+
+      .formulaeditorinput {
+        margin-right: 2em;
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <div id='main'>
+
+      <h3>MathDox formula editor</h3>
+
+      <p>
+        The MathDox formula editor is a web-based editor for mathematical
+        formulas. It is currently being developed at the Technische Universiteit
+        Eindhoven as a means for students to enter formulas in an e-learning
+        environment. Its main features are listed below.
+      </p>
+
+      <ul>
+        <li>
+          It has a <em>two-dimensional WYSIWYG</em> interface.
+        </li>
+        <li>
+          It can produce a <em>semantic</em> representation of the formula.
+        </li>
+        <li>
+          <em>No plugins</em> need to be installed in the browser to use the
+          editor.
+        </li>
+        <li>
+          It can be easily <em>integrated into existing HTML</em> pages.
+        </li>
+        <li>
+          It is available under an <em>open source</em> license.
+        </li>
+      </ul>
+
+      <p>
+        The editor is written in Javascript and uses the HTML5 canvas element in
+        combination with jsMath sprite fonts to render mathematics.
+      </p>
+
+      <p>
+        Any questions or comments about the editor are welcome and can be
+        directed at <a href='mailto:info@mathdox.org'>info@mathdox.org</a>.
+      </p>
+
+      <h4>Demo</h4>
+
+      <p>
+        The following formulas can be edited using your keyboard. Feel free to
+	experiment. Supported are among others: integers, floating point
+	numbers, variables, some keywords (like sin and pi), multiplication
+	(*), division (/), addition (+), subtraction (-) and exponents (^). 
+      </p>
+      <p>
+	It is possible to show zero, one or multiple palettes that can be used
+	to insert something at the cursor position of the formulaeditor with
+	focus. With this palette it is also possible to enter matrices and
+	(square) roots.
+      </p>
+
+      <p>
+      <textarea id='formula1' class='mathdoxformula' rows='10' cols='80'>
+
+        &lt;OMOBJ xmlns='http://www.openmath.org/OpenMath'>
+          &lt;OMA>
+            &lt;OMS cd='arith1' name='divide'/>
+            &lt;OMA>
+              &lt;OMS cd='arith1' name='minus'/>
+              &lt;OMA>
+                &lt;OMS cd='arith1' name='power'/>
+                &lt;OMV name='q'/>
+                &lt;OMI>2&lt;/OMI>
+              &lt;/OMA>
+              &lt;OMI>1&lt;/OMI>
+            &lt;/OMA>
+            &lt;OMA>
+              &lt;OMS cd='arith1' name='minus'/>
+              &lt;OMV name='q'/>
+              &lt;OMI>1&lt;/OMI>
+            &lt;/OMA>
+          &lt;/OMA>
+        &lt;/OMOBJ>
+
+      </textarea>
+
+      <textarea id='formula2' class='mathdoxformula' rows='10' cols='80'>
+
+        &lt;OMOBJ xmlns='http://www.openmath.org/OpenMath'>
+          &lt;OMA>
+            &lt;OMS cd='arith1' name='sum'/>
+            &lt;OMA>
+              &lt;OMS cd='interval1' name='integer_interval'/>
+              &lt;OMI>1&lt;/OMI>
+              &lt;OMI>3&lt;/OMI>
+            &lt;/OMA>
+            &lt;OMBIND>
+              &lt;OMS cd='fns1' name='lambda'/>
+              &lt;OMBVAR>
+                &lt;OMV name='n'/>
+              &lt;/OMBVAR>
+              &lt;OMA>
+                &lt;OMS cd='arith1' name='power'/>
+                &lt;OMV name='x'/>
+                &lt;OMV name='n'/>
+              &lt;/OMA>
+            &lt;/OMBIND>
+          &lt;/OMA>
+        &lt;/OMOBJ>
+
+        </textarea>
+      </p>
+
+      <p>
+        To see an OpenMath representation of the first formula above
+        <a href='javascript:alert(document.getElementById("formula1").value)'>
+        click here</a>. This demonstrates that a semantic tree of the formula
+	is stored, and not just a presentation tree. To see a MathML
+	representation of the first formula above <a
+	href='javascript:alert(org.mathdox.formulaeditor.FormulaEditor.getEditorByTextArea("formula1").getMathML())'>click
+	here</a>. Note that the conversion to MathML has not been tested
+	 exhaustively and might still contain errors.
+      </p>
+
+      <h4>Usage</h4>
+
+      <p>
+	For a while this editor has been used in our <a
+	href='http://mathdox.org/'>MathDox software</a> and students are making
+	exercises by entering the answer with this editor. If you want to use
+	the formula editor in a webpage, there are two ways to do so. The first
+	method is by including a reference to the main javascript file at the
+	mathdox.org server:
+      </p>
+
+      <p class='code'>
+        &lt;script type='text/javascript'
+        src='http://mathdox.org/formulaeditor/main.js'>&lt;/script>
+      </p>
+
+      <p>
+        The second (alternative) method is by copying the formulaeditor
+        javascript sources to the same location as the webpage, and reference
+        the main javascript file from there:
+      </p>
+
+      <p class='code'>
+        &lt;script type='text/javascript'
+        src='org/mathdox/formulaeditor/main.js'>&lt;/script>
+      </p>
+
+      <p>
+        In addition you also need to add a textarea of class 'mathdoxformula' at
+        the place where you want the formula editing field to appear:
+      </p>
+
+      <p class='code'>
+        &lt;textarea class='mathdoxformula'>&lt;/textarea>
+      </p>
+
+      <h4>Download</h4>
+      <p>
+        Webpage authors that want to deploy the formula editor javascript
+        sources to their own website can download the following package:
+      </p>
+
+      <p>
+      <a href='formulaeditor-1.1.31f.zip'
+        >formulaeditor-1.1.31f.zip</a>
+      </p>
+
+      <p>
+        Developers that are interested in changing the formulaeditor itself, can
+        checkout the source from the
+        <a href='http://subversion.tigris.org/'>subversion</a> repository at:
+      </p>
+
+      <p>
+        <a href='https://mathdox.org/svn/repos/public/formulaeditor'
+        >https://mathdox.org/svn/repos/public/formulaeditor</a>
+      </p>
+
+      <h4>Notes</h4>
+
+      <p>
+	Currently this editor is mostly tested in Mozilla Firefox (v3). It
+	should however also work in other browsers: Microsoft Internet Explorer
+	(v7), Safari, Opera, Konqueror.
+      </p>
+
+      <p>
+	Better documentation is needed on how to add new functions (like sin)
+	or keywords (like pi). Furthermore it would be nice to have labels for
+	the tabs of the palette. 
+      </p>
+
+      <h4>Copyright information</h4>
+
+      <p>
+        Copyright (C) 2007-2008 Technische Universiteit Eindhoven
+      </p>
+      <p>
+        This library is free software; you can redistribute it and/or
+        modify it under the terms of the GNU Lesser General Public
+        License <a href='http://www.gnu.org/licenses/lgpl.html'>as
+        published by the Free Software Foundation</a>; either
+        version 2.1 of the License, or (at your option) any later version.
+      </p>
+      <p>
+        This library is distributed in the hope that it will be useful,
+        but WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+        Lesser General Public License for more details.
+      </p>
+
+    </div>
+
+  </body>
+
+</html>

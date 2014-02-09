@@ -1,0 +1,137 @@
+<html>
+
+  <head>
+
+    <title>MathDox formula editor: OpenMath conversion</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <script type='text/javascript'>
+      if (org) {
+        alert("org already defined, could not set options");
+      } else {
+        var org = { mathdox: { formulaeditor: { options: {
+          decimalMark : ",",
+	  indentXML : true,
+          modeArith1Divide: 'inline',
+          modeInterval: true,
+          onloadFocus: true,
+          optionArith1PowerPrefix: 'true',
+          optionArith1PowerInversePrefix: 'true',
+          optionArith1UnaryMinusBrackets: 'true',
+          optionListSeparatorFixed: ' , ',
+          optionVerboseStyle : 'true',
+          paletteHighlight: false,
+	  paletteURL : "org/mathdox/formulaeditor/palette_split.xml",
+          styleArith1Divide: 'colon',
+          styleArith1Times: 'cross',
+          styleTransc1Log: 'prefix',
+	  useBar : true
+	}}}};
+      }
+
+      updateGAP = function() {
+	var textarea = document.getElementById("gap1");
+
+        var callback = function(str) {
+	  textarea.value = str;
+	}
+
+	org.mathdox.formulaeditor.Services.openmath2gap(
+	  org.mathdox.formulaeditor.FormulaEditor.getEditorByTextArea("formula1").getOpenMath(), callback);
+
+      };
+      updateMathML = function() {
+	var mathml = new org.mathdox.formulaeditor.FormulaEditor().indentXML(
+	  org.mathdox.formulaeditor.FormulaEditor.getEditorByTextArea(
+	    "formula1").getMathML());
+
+	var textarea = document.getElementById("mathml1");
+
+	textarea.value = mathml;
+      };
+      docopy = function() {
+	var presCopy = org.mathdox.formulaeditor.FormulaEditor.getEditorByTextArea(
+			"formula1").presentation.copy();
+
+	var editor2 = org.mathdox.formulaeditor.FormulaEditor.getEditorByTextArea("formula2");
+	editor2.presentation = presCopy;
+	presCopy.updateChildren();
+	editor2.save();
+	editor2.redraw();
+      };
+    </script>
+    <script type='text/javascript' src='org/mathdox/formulaeditor/main.js'>
+    </script>
+
+    <style type='text/css'>
+
+      #main {
+        background-color:#FFF;
+        width:50em;
+        font-family:sans-serif;
+      }
+
+      .code {
+        padding-left:2em;
+        font-family:monospace;
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <div id='main'>
+
+      <h3>MathDox formula editor</h3>
+
+      <p>
+	This page shows the <a href='index.html'>mathdox formulaeditor</a> with
+	a visible textarea (usually hidden), that will show the OpenMath (and
+	presentation MathML) output for the current expression. Not all
+	supported symbols are shown in the palette (transc1 is completely
+	supported). Furthermore it is possible to add additional OpenMath
+	symbols in prefix notation: <code>private.fun(private.cons)</code>
+      </p>
+
+      <h4>OpenMath conversion</h4>
+
+      <textarea id='formula1' class='mathdoxformula mathdoxpalette mathdoxvisibletextarea' rows='10' cols='80'>
+
+        &lt;OMOBJ version='2.0' xmlns='http://www.openmath.org/OpenMath'&gt;
+	  &lt;!-- comments now allowed --&gt;
+	  &lt;OMA&gt;
+	    &lt;OMS cd='interval1' name='interval_oo'/&gt;
+            &lt;OMI&gt;-1&lt;/OMI&gt;
+            &lt;OMI&gt;2&lt;/OMI&gt;
+	  &lt;/OMA&gt;
+        &lt;/OMOBJ&gt;
+
+      </textarea>
+      <textarea id='formula2' class='mathdoxformula mathdoxpalette mathdoxvisibletextarea' rows='10' cols='80'>
+        &lt;OMOBJ version='2.0' xmlns='http://www.openmath.org/OpenMath'&gt;
+          &lt;OMS cd="editor1" name="input_box"/&gt;
+        &lt;/OMOBJ&gt;
+      </textarea>
+      <button type="button" name="MathML" value='MathML' onclick='updateMathML()'>
+	Update MathML
+      </button>
+      <button type="button" name="MathML" value='MathML' onclick='docopy()'>
+	Copy presentation 
+      </button>
+      <textarea id='mathml1' style='margin-right: 2em' rows='10' cols='80'>
+      </textarea>
+
+      <button type="button" name="GAP" value='GAP' onclick='updateGAP()'>
+	Update GAP
+      </button>
+      <textarea id='gap1' style='margin-right: 2em' rows='10' cols='80'>
+      </textarea>
+
+    </div>
+
+  </body>
+
+</html>

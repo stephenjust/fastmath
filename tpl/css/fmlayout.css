@@ -2,13 +2,6 @@ body{
  color: 000;
 }
 
-.content {
-    margin: 0 auto;
-    padding: 0 2em;
-    max-width: 800px;
-    margin-bottom: 50px;
-    line-height: 1.6em;
-}
 
 .information{
 	border: 2px solid;
@@ -25,15 +18,36 @@ body{
 	margin: 20px auto;
 }
 
-.canvas-wrapper{
-	
+.submit-button{
+	width: 195px;
+	margin: 0px auto;
 }
 
-.canvas-border{
-	margin: 0 auto;
-	padding: 20px;
+#time{
+	height: 200px;
+}
+
+#comic-wrapper{
+	margin: 10px auto;
 	width: 840px;
-	height: 540px;
+	height: 440px;
+	border: 2px solid;
+	border-radius: 20px;
+}
+
+#game-wrapper{
+	width: 840px;
+	margin: 0 auto;
+}
+
+#comic{
+	width: 800px;
+	height: 400px;
+	margin: 20px;
+}
+
+#math-wrapper{
+	height: 300px;
 	border: 2px solid;
 	border-radius: 20px;
 }
