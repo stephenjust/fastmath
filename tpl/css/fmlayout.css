@@ -57,9 +57,11 @@ body{
 }
 
 #answer{
-	
+	margin: 0 70px;
 }
 
 #incorrect-answer{
-
+	margin: 0 auto;
+	height: 100px;
+	width: 100px;
 }
