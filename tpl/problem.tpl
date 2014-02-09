@@ -5,7 +5,7 @@
                 <img src="tpl/logos/main-logo-small.png" />
         </div>
         <div class="pure-u-2-5">
-                <img src="tpl/logos/arrows-10.png" />
+                <img src="tpl/logos/arrows-{$math.solved}.png" />
         </div>
         <div class="pure-u-1-1">
         </div>
@@ -20,7 +20,7 @@
                                         </p>
                                 </div>
                                 <script type="text/javascript">
-                                    refreshMath();
+                                    refreshMath({$comic.seed}, {$comic.step});
                                 </script>
                                 <div class="pure-g-r">
                                         <div class="pure-u-2-3">

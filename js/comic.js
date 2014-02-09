@@ -71,9 +71,28 @@ var ctx1;
 //var ctx2 = c2.getContext("2d");
 Math.seed = 3;
 
-function drawCanvas(seed, step) {
+function drawComic(seed, step) {
     c1 = document.getElementById("comic-canvas1");
     ctx1 = c1.getContext("2d");
+    
+    if (step >= 1) {
+        drawBackground(seed);
+    }
+    if (step >= 2) {
+        drawManLeft(seed);
+    }
+    if (step >= 3) {
+        drawManRight(seed);
+    }
+    if (step === 4) {
+        writeQuestion(seed);
+    }
+    if (step === 5) {
+        writeAnswer(seed);
+    }
+    if (step >= 6) {
+        writePunchline(seed);
+    }
 }
 
 // From http://indiegamr.com/generate-repeatable-random-numbers-in-js/

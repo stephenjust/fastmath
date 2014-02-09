@@ -37,11 +37,12 @@ function problemSubmit(seed, type) {
     });
 }
 
-function refreshMath() {
+function refreshMath(comic_seed, comic_step) {
     MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 
     var textarea = document.getElementById("formula1");
     org.mathdox.formulaeditor.FormulaEditor.updateByTextAreas(textarea);
+    drawComic(comic_seed, comic_step);
 }
 
 
