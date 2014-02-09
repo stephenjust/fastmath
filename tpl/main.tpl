@@ -38,7 +38,8 @@
                     <div class="information">
                         <p>
                             Fast Math is a game to help develop mental math skills. It is meant for calculus level math
-                            students.  A round of fast math lasts one minute. The goal of the game is to solve as many
+                            students.  A round of fast math lasts two minutes. The goal of the game 
+is to solve as many
                             math problems as possible in the given time.  As the problems are solved a comic strip will
                             be randomly generated for your amusement.
                         </p>

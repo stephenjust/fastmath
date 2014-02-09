@@ -74,7 +74,12 @@ $smarty->display('tpl/problem.tpl');
 function getRandomProblemType() {
     $array = array(
         'axIntegration',
-        'polynomialDifferentiation');
+        'polynomialDifferentiation',
+	'axDiff',
+	'CosxIntegration',
+	'sinDifferentiation',
+	'lnDiff'
+	);
     $ind = array_rand($array);
     return $array[$ind];
 }
