@@ -63,7 +63,7 @@ window.setInterval(function()
 
     elapsed = Math.floor(time / 100) / 10;
 
-    var clock = Math.round(60 - elapsed);
+    var clock = Math.round(120 - elapsed);
     if (clock <= 0) clock = "Time's up!";
     $('#time').html(clock);
     if (clock === "Time's up!") {
