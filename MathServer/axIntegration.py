@@ -9,8 +9,8 @@ class axIntegration(problem):
 	""" Expressions of the form \int (k**x, dx) """
 
 	#Coefficient sets H, K
-	Hset = [i for i in range(0,15)]
-	Kset = [i for i in range(0,20) ]
+	Hset = [i for i in range(1,15)]
+	Kset = [i for i in range(1,20) ]
 
 	x = Symbol('x')
 	problem_statement = 0

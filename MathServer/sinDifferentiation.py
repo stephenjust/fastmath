@@ -9,8 +9,8 @@ class sinDifferentiation(problem):
 	""" Expressions of the form \ddx (Hsin(kx)) """
 
 	#Coefficient sets H, K
-	Hset = [i for i in range(0,7)]
-	Kset = [i for i in range(0,6) ]
+	Hset = [i for i in range(1,7)]
+	Kset = [i for i in range(1,6) ]
 
 	x = Symbol('x')
 	problem_statement = 0
