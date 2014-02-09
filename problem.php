@@ -22,10 +22,9 @@ $script_path = '/srv/http/fastmath/MathServer/server.py';
 
 // call python script
 ob_start();
-system(sprintf("python2 %s --random-seed %d --problem-type %s --user-input %s",
+system(sprintf("python2 %s --random-seed %s --problem-type %s --user-input %s",
         $script_path, escapeshellarg($_GET['randomseed']), escapeshellarg($_GET['type']), escapeshellarg($_POST['userinput'])));
 $out = json_decode(ob_get_clean());
-
 
 $smarty = new Smarty;
 
