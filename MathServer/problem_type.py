@@ -10,16 +10,38 @@ class polynomialDifferentiation(problem):
 	Kset = [i for i in range(0,6) ]
 
 	x = Symbol('x')
-
+	problem_statement = 0
+	correct_answer = 0
 
 	def __init__(self, coefficient_id):
 		"""Initializes the problem statement d/dx(H x**K + H x**(K+H) ) """
 		super(polynomialDifferentiation, self).__init__(coefficient_id)
 		H = Hset[coefficient_id % 16]
 		K = Kset[coefficient_id % 7 ]		
-		self.problem_statement =  (x**K + H*(x**(K+H)))
+		self.problem_statement =  Derivative((x**K + H*(x**(K+H))),x)
 		pass
 
-	def get_statement(self)
+	def get_statement(self):
+		""" Returns the statement in LaTeX """
+		return latex(self.problem_statement)
+		pass
+	
+	def eval_prob_statement(self):
+		"""Evaluates the correct answer to the problem statement and returns
+		the sympy expression """
+		self.correct_answer = self.problem_statement.doit()
+		return self.correct_answer
+		pass
+
+	def eval_result(self, MathInput):
+		""" Checks that the user inputted equation is symbolically equal to 
+		the correct answer 
+		MathInput is a string
+		"""
+		if parse_expr(MathInput) == self.correct_answer:
+			return True
+		else:
+			return False
+pass
 	
 	  
