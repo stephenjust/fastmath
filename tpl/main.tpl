@@ -14,6 +14,13 @@
         <link rel="stylesheet" href="tpl/css/fmlayout.css">
         <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
         <script type="text/javascript" src="js/ui.js"></script>
+        <script type="text/javascript" src="js/org/mathdox/formulaeditor/main.js"></script>
+        <script type="text/javascript" src="js/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        {literal}
+        <script type='text/javascript'>
+                org = { mathdox:{formulaeditor:{options:{dragPalette:true, paletteShow: "none", useBar:true}}}};
+        </script>
+        {/literal}
     </head>
     <body>
         <div id="content">
