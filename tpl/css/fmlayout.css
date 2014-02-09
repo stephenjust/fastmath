@@ -23,3 +23,16 @@ body{
 .play-button{
 	padding: auto;
 }
+
+.canvas-wrapper{
+	
+}
+
+.canvas-border{
+	margin: 0 auto;
+	padding: 20px;
+	width: 840px;
+	height: 540px;
+	border: 2px solid;
+	border-radius: 20px;
+}
