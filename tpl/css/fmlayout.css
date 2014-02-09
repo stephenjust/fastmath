@@ -23,8 +23,15 @@ body{
 	margin: 0px auto;
 }
 
-#time{
+#time-container{
 	height: 200px;
+	width: 195px;
+	margin: 0 auto;
+}
+
+#time-container p{
+	font-size: 2em;
+	color: rgb(55, 96, 146);
 }
 
 #comic-wrapper{

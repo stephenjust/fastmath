@@ -39,7 +39,13 @@
                         </div>
                 </div>
                 <div class="pure-u-1-3">
-                        <div id="time">
+                        <div id="time-container">
+							<p>
+								Time Remaining <br/>
+							</p>
+							<p id="time">
+								
+							</p>
                         </div>
                         <div class="submit-button">
                                 <button id="problem-submit" class="button-xlarge pure-button submit" onclick="javascript:problemSubmit({$math.seed}, '{$math.type}');">Submit</button>
