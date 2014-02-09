@@ -29,9 +29,7 @@ $out = json_decode(ob_get_clean());
 
 $smarty = new Smarty;
 
-//$smarty->force_compile = true;
-$smarty->debugging = true;
-$smarty->caching = true;
+$smarty->caching = false;
 $smarty->cache_lifetime = 120;
 
 // print out comic
@@ -40,8 +38,6 @@ $smarty->assign('comic', array('seed' => $_SESSION['comic_seed'], 'step' => $_SE
 $smarty->assign('math', array(
     'question' => $out->latex_statement
 ));
-
-$smarty->assign("foo","bar");
 
 $smarty->display('tpl/problem.tpl');
 

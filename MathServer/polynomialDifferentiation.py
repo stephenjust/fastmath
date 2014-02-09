@@ -18,11 +18,11 @@ class polynomialDifferentiation(problem):
 		"""Initializes the problem statement d/dx(H x**K + H x**(K+H) ) """
 		super(polynomialDifferentiation, self).__init__(random_seed)
 		coefficient_id = int(random.random()*100 //1)
-		H = self.Hset[coefficient_id % 16]
+		H = self.Hset[coefficient_id % len(self.Hset)]
 		coefficient_id = int(random.random()*100 //1)
 		K = self.Kset[coefficient_id % 7 ]		
 		x = self.x
-		self.problem_statement =  Derivative((x**K + H*(x**(K+H))),x)
+		self.problem_statement =  Derivative(( x**K + H*(x**(K+H)) ) ,x)
 		pass
 
 	def get_statement(self):

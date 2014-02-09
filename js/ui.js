@@ -20,4 +20,7 @@ function play() {
 
 function refreshMath() {
     MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+
+    var textarea = document.getElementById("formula1");
+    org.mathdox.formulaeditor.FormulaEditor.updateByTextAreas(textarea);
 }

@@ -5,11 +5,11 @@ from sympy import *
 class problem(object):
 	""" Parent Class for all problem_types """
 
-	coefficient_id = 0
+	
 	problem_statement = 0
-	coefficient_id = 0
-	def __init__(self, coefficient_id):
-		self.coefficient_id = coefficient_id
+	random_seed = 0
+	def __init__(self, random_seed):
+		self.random_seed = random_seed
 		pass
 
 	def get_statment(self):
@@ -17,15 +17,24 @@ class problem(object):
 		pass
 
 	def eval_prob_statement(self):
-		""" Evaluates the correct answer to the problem_statement and returns the sympy expression """
-		# Can probbaly just take self.problem_statement, run it through Integrate() or whatever method 
-		# used, and return it.
-		# diffeq = Eq(f(x).diff(x, x) - 2*f(x).diff(x) + f(x), sin(x))
-		# return Solve?(diffeq)
-		
+		"""Evaluates the correct answer to the problem statement and returns
+		the sympy expression """
+		self.correct_answer = self.problem_statement.doit()
+		return self.correct_answer
+
 	def eval_result(self, MathInput):
-		""" Checks that the inputted expresion is symbolically equal to eval_prob_statement """
-		pass
+		"""
+		Checks that the user inputted equation is symbolically equal to 
+		the correct answer 
+		MathInput is a string
+		"""
+		if MathInput == None:
+			return False
+		if parse_expr(MathInput) == self.correct_answer:
+			return True
+		else:
+			return False
               
-	
-	pass
+	def get_statement(self):
+		""" Returns the statement in LaTeX """
+		return latex(self.problem_statement)
