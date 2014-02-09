@@ -51,3 +51,15 @@ body{
 	border: 2px solid;
 	border-radius: 20px;
 }
+
+#question{
+	height: 150px;
+}
+
+#answer{
+	
+}
+
+#incorrect-answer{
+
+}
