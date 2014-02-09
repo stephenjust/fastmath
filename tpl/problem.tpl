@@ -39,7 +39,7 @@
                         <div id="time">
                         </div>
                         <div class="submit-button">
-                                <button class="button-xlarge pure-button submit" onclick="mysteryfunction()">Submit</button>
+                                <button class="button-xlarge pure-button submit" onclick="javascript:problemSubmit();">Submit</button>
                         </div>
                 </div>
         </div>

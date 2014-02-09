@@ -18,6 +18,18 @@ function play() {
     });
 }
 
+function problemSubmit() {
+    $('#content').html(loadingHtml);
+    $.ajax('./problem.php', {
+        error: function(jqx, stat, err) {
+            $('#content').html('Failwhale');
+        },
+        success: function(data, status, jqx) {
+            $('#content').html(data);
+        }
+    });
+}
+
 function refreshMath() {
     MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 
