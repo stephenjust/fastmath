@@ -68,8 +68,16 @@ window.setInterval(function()
     if (clock <= 0) clock = "Time's up!";
     $('#time').html(clock);
     if (clock === "Time's up!") {
-        $('#problem-submit').attr('onclick','').unbind('click');
-        $('#problem-submit').html("Time Up");
+            started=0;
+            $.ajax({
+            url: './end.php',
+            error: function(jqx, stat, err) {
+                $('#content').html('Failwhale');
+            },
+            success: function(data, status, jqx) {
+                $('#content').html(data);
+            }
+        });
     }
 
 }, 100);

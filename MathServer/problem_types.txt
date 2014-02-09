@@ -1,0 +1,13 @@
+axIntegration.py
+CosxIntegration.py
+HxexpKxIntegration.py
+lnIntegration.py
+polynomialDifferentiation.py
+polynomialIntegration.py
+problem.py
+problem_types.py
+server.py
+SinMCosNmnevenIntegration.py
+SinMCosNmoddIntegration.py
+SinMCosNnoddIntegration.py
+SinxIntegration.py

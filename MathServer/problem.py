@@ -18,6 +18,7 @@ class problem(object):
 
 	def get_statment(self):
 		""" returns the problem statement as LaTeX """
+		return get_statement(self)
 		pass
 
 	def eval_prob_statement(self):

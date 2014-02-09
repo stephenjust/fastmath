@@ -16,6 +16,12 @@ import types
 
 from polynomialDifferentiation import *
 from axIntegration import *
+from axDiff import *
+from CosxIntegration import *
+from sinDifferentiation import *
+from tanDifferentiation import *
+from lnDiff import *
+from lnIntegration import *
 import simplejson as json
 
 
