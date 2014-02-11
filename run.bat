@@ -1,0 +1,1 @@
+python frontend/manage.py runserver
