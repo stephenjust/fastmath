@@ -22,6 +22,6 @@ On Windows:
    * Open a command prompt as an administrator
    * Navigate to the django folder
    * Run 'python setup.py install'
-
+   * Add 'C:\Python33\Lib\site-packages\django\bin' to your path
 
 

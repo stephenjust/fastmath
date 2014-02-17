@@ -1,1 +1,2 @@
-python frontend/manage.py runserver
+python manage.py startapp mathengine
+python manage.py runserver

@@ -5,8 +5,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'frontend.views.home', name='home'),
+    # url(r'^$', 'fm.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-
+    url(r'^math/', include('fm.mathengine.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )

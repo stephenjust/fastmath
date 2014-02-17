@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+	'fm.mathengine',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -47,9 +48,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'frontend.urls'
+ROOT_URLCONF = 'fm.urls'
 
-WSGI_APPLICATION = 'frontend.wsgi.application'
+WSGI_APPLICATION = 'fm.wsgi.application'
 
 
 # Database
@@ -80,3 +81,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
