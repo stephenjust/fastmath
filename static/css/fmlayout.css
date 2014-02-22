@@ -23,6 +23,12 @@ body{
 	margin: 0px auto;
 }
 
+#loader {
+	width: 100%;
+	padding-top: 125px;
+	text-align: center;
+}
+
 #time-container{
 	height: 200px;
 	width: 195px;

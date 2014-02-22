@@ -1,4 +1,5 @@
 import random
+import json
 
 from django.http import Http404
 from django.http import HttpResponse
@@ -18,7 +19,8 @@ def home(request):
 def play(request):
 	game = {'url': "/game",
 			'seed': request.POST['seed'],
-			'end_url': "/end"}
+			'end_url': "/end",
+			'types': json.dumps(['derivPolynomial'])}
 	return render(request, 'game.html', {'game': game})
 
 @require_http_methods(["POST"])

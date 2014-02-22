@@ -12,4 +12,4 @@ def problem(request, problem_type, seed):
 	if pclass is None:
 		raise Http404
 	p = pclass(seed)
-	return HttpResponse(p.get_statement())
+	return HttpResponse(json.dumps({'latex': p.get_statement()}))
