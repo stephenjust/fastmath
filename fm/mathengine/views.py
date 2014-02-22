@@ -22,4 +22,4 @@ def check(request, problem_type, seed):
 	if pclass is None:
 		raise Http404
 	p = pclass(seed)
-	return HttpResponse(json.dumps({'correct': False}))
+	return HttpResponse(json.dumps({'correct': p.check(request.POST['input'])}))

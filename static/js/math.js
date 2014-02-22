@@ -61,8 +61,10 @@ $(window).load(function() {
 						var textarea = document.getElementById("formula1");
 						org.mathdox.formulaeditor.FormulaEditor.getEditorByTextArea(textarea).focus();
 					} else {
+						game.hide_math();
+						$("#question").html("");
 						$("#incorrect-answer").hide();
-						game.question_number += 1;
+						game.question += 1;
 						game.load_question();
 					}
 				}
