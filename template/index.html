@@ -48,7 +48,10 @@ is to solve as many
                 </div>
             </div>
             <div class="play-button">
-                <button class="button-xlarge pure-button play" onclick="javascript:play();">Play Now!</button>
+				<form method="POST" action="{{ game.url }}">{% csrf_token %}
+					<input type="hidden" name="seed" value="{{ game.seed }}" />
+					<input type="submit" class="button-xlarge pure-button play" value="Play Now!" />
+				</form>
             </div>
             <div>
 

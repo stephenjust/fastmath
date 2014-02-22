@@ -1,0 +1,82 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Fast Math">
+
+        <title>Fast Math</title>
+
+        <link rel="stylesheet" href="{% static 'css/base-min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/buttons-min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/grids-min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/menus-min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/fmlayout.css' %}">
+        <script type="text/javascript" src="{% static 'js/jquery-2.1.0.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/ui.js' %}"></script>
+    </head>
+    <body>
+        <div id="content">
+            	<div class="pure-g-r">
+		<div class="pure-u-1-5">
+		</div>
+		<div class="pure-u-3-5">
+			<img src="{% static 'img/end-logo.png' %}" />
+		</div>
+		<div class="pure-u-1-5">
+		</div>
+		<div class="pure-u-1-5">
+		</div>
+		<div class="pure-u-3-5">
+			<div id="end-score">
+				<p>
+					You solved {{ game.score }} problems  
+				</p>
+			</div>
+		</div>
+		<div class="pure-u-1-5">
+		</div>
+	</div>
+	<div id="comic-wrapper">
+		<div id="comic">
+			<canvas id="comic-canvas1" width="800" height="400"></canvas>
+		</div>
+	</div>
+	
+	<div class="pure-g-r">
+		<div class="pure-u-1-5">
+		</div>
+		<div class="pure-u-3-5">
+			<div class="play-button">
+				<form method="POST" action="{{ game.url }}">{% csrf_token %}
+					<input type="hidden" name="seed" value="{{ game.next_seed }}" />
+					<input type="submit" class="button-xlarge pure-button play" value="Play Again!" />
+				</form>
+            </div>
+		</div>
+		<div class="pure-u-1-5">
+		</div>
+	</div>
+	
+	<img id="background1" src="{% static 'comic-images/background-1.png' %}" width="0px" height="0px"/>
+	<img id="background2" src="{% static 'comic-images/background-2.png' %}" width="0px" height="0px"/>
+	<img id="background3" src="{% static 'comic-images/background-3.png' %}" width="0px" height="0px"/>
+	<img id="background4" src="{% static 'comic-images/background-4.png' %}" width="0px" height="0px"/>
+	<img id="background5" src="{% static 'comic-images/background-5.png' %}" width="0px" height="0px"/>
+	<img id="manLeft1" src="{% static 'comic-images/left-man-1.png' %}" width="0px" height="0px"/>
+	<img id="manLeft2" src="{% static 'comic-images/left-man-2.png' %}" width="0px" height="0px"/>
+	<img id="manLeft3" src="{% static 'comic-images/left-man-3.png' %}" width="0px" height="0px"/>
+	<img id="manLeft4" src="{% static 'comic-images/left-man-4.png' %}" width="0px" height="0px"/>
+	<img id="manRight1" src="{% static 'comic-images/right-man-1.png' %}" width="0px" height="0px"/>
+	<img id="manRight2" src="{% static 'comic-images/right-man-2.png' %}" width="0px" height="0px"/>
+	<img id="manRight3" src="{% static 'comic-images/right-man-3.png' %}" width="0px" height="0px"/>
+	<img id="manRight4" src="{% static 'comic-images/right-man-4.png' %}" width="0px" height="0px"/>
+        <script type="text/javascript">
+            refreshMath({{ game.seed }}, 10);
+        </script>
+        </div>
+        
+    </body>
+    <script type="text/javascript" src="{% static 'js/comic.js' %}"></script>
+</html>

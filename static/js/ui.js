@@ -6,9 +6,13 @@
 
 var loadingHtml = '<div id="loader"><img src="tpl/logos/octocat.jpg" width="100px" /><br /><img src="tpl/graphics/ajax-loader.gif" width="100px" /><br />Loading</div>';
 
-function play() {
+function play(gameSeed, url) {
     $('#content').html(loadingHtml);
     $.ajax('./problem.php', {
+		type: 'POST',
+		data: {
+			'game_seed': gameSeed
+		},
         error: function(jqx, stat, err) {
             $('#content').html('Failwhale');
         },

@@ -1,0 +1,105 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Fast Math">
+
+        <title>Fast Math</title>
+
+        <link rel="stylesheet" href="{% static 'css/base-min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/buttons-min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/grids-min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/menus-min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/fmlayout.css' %}">
+        <script type="text/javascript" src="{% static 'js/jquery-2.1.0.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/ui.js' %}"></script>
+        <script type="text/javascript" src="http://mathdox.org/formulaeditor/main.js"></script>
+        <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type='text/javascript'>
+                org = { mathdox:{formulaeditor:{options:{dragPalette:true, paletteShow: "none", useBar:true}}}};
+        </script>
+    </head>
+    <body>
+        <div id="content">
+    <div class="pure-g-r">
+        <div class="pure-u-1-5">
+        </div>
+        <div class="pure-u-1-5">
+                <img src="{% static 'img/main-logo-small.png' %}" />
+        </div>
+        <div class="pure-u-2-5">
+                <img src="tpl/logos/arrows-{$math.solved}.png" />
+        </div>
+        <div class="pure-u-1-1">
+        </div>
+    </div>
+    <div id="game-wrapper">
+        <div class="pure-g-r">
+                <div class="pure-u-2-3">
+                        <div id="math-wrapper">
+                                <div id="question">
+                                        <p>
+                                                $${$math.question}$$
+                                        </p>
+                                </div>
+                                <script type="text/javascript">
+                                    refreshMath({{ game.seed }}, {$comic.step});
+                                </script>
+                                <div class="pure-g-r">
+                                        <div class="pure-u-2-3">
+                                                <div id="answer">
+                                                        <textarea id="formula1" class="mathdoxformula">{$response}</textarea>
+                                                </div>
+                                        </div>
+                                        <div class="pure-u-1-3">
+                                                <div id="incorrect-answer">
+                                                    {if $error}
+														<img src="{% static 'img/incorrect.png' %}" />
+													{/if}
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <div class="pure-u-1-3">
+                        <div id="time-container">
+							<p>
+								Time Remaining <br/>
+							</p>
+							<p id="time">
+								
+							</p>
+                        </div>
+                        <div class="submit-button">
+                                <button id="problem-submit" class="button-xlarge pure-button submit" onclick="javascript:problemSubmit({$math.seed}, '{$math.type}');">Submit</button>
+                        </div>
+                </div>
+        </div>
+    </div>
+	<div id="comic-wrapper">
+		<div id="comic">
+			<canvas id="comic-canvas1" width="800" height="400"></canvas>
+			<!-- <canvas id="comic-canvas2" width="800" height="400" style="position: absolute; left: 0; top: 0; z-index: 2;></canvas> -->
+		</div>
+	</div>
+	<img id="background1" src="{% static 'comic-images/background-1.png' %}" width="0px" height="0px"/>
+	<img id="background2" src="{% static 'comic-images/background-2.png' %}" width="0px" height="0px"/>
+	<img id="background3" src="{% static 'comic-images/background-3.png' %}" width="0px" height="0px"/>
+	<img id="background4" src="{% static 'comic-images/background-4.png' %}" width="0px" height="0px"/>
+	<img id="background5" src="{% static 'comic-images/background-5.png' %}" width="0px" height="0px"/>
+	<img id="manLeft1" src="{% static 'comic-images/left-man-1.png' %}" width="0px" height="0px"/>
+	<img id="manLeft2" src="{% static 'comic-images/left-man-2.png' %}" width="0px" height="0px"/>
+	<img id="manLeft3" src="{% static 'comic-images/left-man-3.png' %}" width="0px" height="0px"/>
+	<img id="manLeft4" src="{% static 'comic-images/left-man-4.png' %}" width="0px" height="0px"/>
+	<img id="manRight1" src="{% static 'comic-images/right-man-1.png' %}" width="0px" height="0px"/>
+	<img id="manRight2" src="{% static 'comic-images/right-man-2.png' %}" width="0px" height="0px"/>
+	<img id="manRight3" src="{% static 'comic-images/right-man-3.png' %}" width="0px" height="0px"/>
+	<img id="manRight4" src="{% static 'comic-images/right-man-4.png' %}" width="0px" height="0px"/>
+
+        </div>
+        
+    </body>
+    <script type="text/javascript" src="{% static 'js/comic.js' %}"></script>
+</html>
