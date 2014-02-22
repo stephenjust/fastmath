@@ -81,6 +81,14 @@ $(window).load(function() {
 		},
 		'end': function() {
 			console.log("Game over!");
+			$("#game-score").val(this.question - 1);
+			$("#problem-submit").hide();
+			$("#game-end").show();
+		},
+		'more_time': function() {
+			$("#game-end").hide();
+			$("#problem-submit").show();
+			this.start_timer();
 		}
 	};
 	
@@ -98,8 +106,8 @@ window.setInterval(function() {
     if (clock <= 0) clock = "Time's up!";
     $('#time').html(clock);
     if (clock === "Time's up!") {
-        game.end();
 		game.timer_started = false;
+        game.end();
     }
 
 }, 100);

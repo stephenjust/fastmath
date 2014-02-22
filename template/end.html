@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="{% static 'css/menus-min.css' %}">
         <link rel="stylesheet" href="{% static 'css/fmlayout.css' %}">
         <script type="text/javascript" src="{% static 'js/jquery-2.1.0.min.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/ui.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/comic.js' %}"></script>
     </head>
     <body>
         <div id="content">
@@ -72,11 +72,7 @@
 	<img id="manRight2" src="{% static 'comic-images/right-man-2.png' %}" width="0px" height="0px"/>
 	<img id="manRight3" src="{% static 'comic-images/right-man-3.png' %}" width="0px" height="0px"/>
 	<img id="manRight4" src="{% static 'comic-images/right-man-4.png' %}" width="0px" height="0px"/>
-        <script type="text/javascript">
-            refreshMath({{ game.seed }}, 10);
-        </script>
         </div>
         
     </body>
-    <script type="text/javascript" src="{% static 'js/comic.js' %}"></script>
 </html>

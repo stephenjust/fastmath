@@ -73,6 +73,11 @@
                         </div>
                         <div class="submit-button">
                                 <button id="problem-submit" class="button-xlarge pure-button submit" onclick="javascript:game.check_answer();">Submit</button>
+								<form method="POST" action="{{ game.end_url }}">{% csrf_token %}
+									<input type="hidden" name="seed" value="{{ game.seed }}" />
+									<input type="hidden" name="score" id="game-score" value="0" />
+									<input type="submit" id="game-end" class="button-xlarge pure-button submit" value="Time Up" style="display:none;" />
+								</form>
                         </div>
                 </div>
         </div>

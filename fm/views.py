@@ -11,7 +11,7 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 @require_http_methods(["GET"])
 @gzip_page
 def home(request):
-	game = {'url': "/game",
+	game = {'url': "/game/",
 			'seed': random.randint(1000, 99999999999)}
 	return render(request, 'index.html', {'game': game})
 
@@ -19,16 +19,16 @@ def home(request):
 @gzip_page
 @ensure_csrf_cookie
 def play(request):
-	game = {'url': "/game",
+	game = {'url': "/game/",
 			'seed': request.POST['seed'],
-			'end_url': "/end",
+			'end_url': "/end/",
 			'types': json.dumps(['derivPolynomial'])}
 	return render(request, 'game.html', {'game': game})
 
 @require_http_methods(["POST"])
 @gzip_page
 def end(request):
-	game = {'url': "/game",
+	game = {'url': "/game/",
 			'seed': request.POST['seed'],
 			'score': int(request.POST['score']),
 			'next_seed': random.randint(1000, 99999999999)}

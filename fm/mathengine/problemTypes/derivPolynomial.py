@@ -13,6 +13,6 @@ class derivPolynomial(problem.Problem):
 		nexponents = random.sample(self.exponents, nterms)
 		polynomial = 0
 		x = self.x
-		for i in range(1, nterms):
+		for i in range(0, nterms):
 			polynomial += random.choice(self.coefficients) * x ** nexponents.pop(0)
 		self.problem_statement = Derivative(polynomial, x)
