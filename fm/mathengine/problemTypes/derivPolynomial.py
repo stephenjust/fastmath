@@ -15,4 +15,4 @@ class derivPolynomial(problem.Problem):
 		x = self.x
 		for i in range(1, nterms):
 			polynomial += random.choice(self.coefficients) * x ** nexponents.pop(0)
-		self.problem_statement = Derivative(polynomial)
+		self.problem_statement = Derivative(polynomial, x)
