@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="{% static 'css/menus-min.css' %}">
         <link rel="stylesheet" href="{% static 'css/fmlayout.css' %}">
         <script type="text/javascript" src="{% static 'js/jquery-2.1.0.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>
 		<script type="text/javascript" src="{% static 'js/chance.min.js' %}"></script>
 		<script type="text/javascript" src="{% static 'js/math.js' %}"></script>
 		<script type="text/javascript" src="{% static 'js/comic.js' %}"></script>
@@ -71,7 +72,7 @@
 							</p>
                         </div>
                         <div class="submit-button">
-                                <button id="problem-submit" class="button-xlarge pure-button submit" onclick="javascript:problemSubmit({$math.seed}, '{$math.type}');">Submit</button>
+                                <button id="problem-submit" class="button-xlarge pure-button submit" onclick="javascript:game.check_answer();">Submit</button>
                         </div>
                 </div>
         </div>

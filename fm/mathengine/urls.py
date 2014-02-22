@@ -5,4 +5,5 @@ from fm.mathengine import views
 urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
 	url(r'^(?P<problem_type>\w+)/(?P<seed>\d+)/$', views.problem, name='problem'),
+	url(r'^(?P<problem_type>\w+)/(?P<seed>\d+)/check/$', views.check, name='check'),
 )

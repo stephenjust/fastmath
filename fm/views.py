@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.gzip import gzip_page
+from django.views.decorators.csrf import ensure_csrf_cookie
 
 @require_http_methods(["GET"])
 @gzip_page
@@ -16,6 +17,7 @@ def home(request):
 
 @require_http_methods(["POST"])
 @gzip_page
+@ensure_csrf_cookie
 def play(request):
 	game = {'url': "/game",
 			'seed': request.POST['seed'],
