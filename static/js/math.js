@@ -25,7 +25,7 @@ $(window).load(function() {
 		},
 		'load_question': function(){
 			var c = new Chance(this.question_seed());
-			var qtype = this.types[Math.floor(c.random()*1000) % this.types.length];
+			var qtype = c.pick(this.types);
 			$.ajax('/math/' + qtype + '/' + this.question_seed(), {
 				dataType: 'json',
 				error: function(jqx, stat, err) {
