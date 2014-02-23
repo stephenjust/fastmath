@@ -1,0 +1,59 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Fast Math">
+		<meta id="game-seed" content="{{ game.seed }}" />
+		<meta id="game-types" content="{{ game.types }}" />
+
+        <title>Fast Math</title>
+
+        <link rel="stylesheet" href="{% static 'css/base-min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/buttons-min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/grids-min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/menus-min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/fmlayout.css' %}">
+        <script type="text/javascript" src="{% static 'js/jquery-2.1.0.min.js' %}"></script>
+    </head>
+    <body>
+        <div id="content">
+			<div class="pure-g-r">
+				<div class="pure-u-1-5">
+				</div>
+				<div class="pure-u-1-5">
+					<a href="/"><img src="{% static 'img/main-logo-small.png' %}" /></a>
+				</div>
+				<div class="pure-u-2-5" id="progress-arrows">
+				</div>
+				<div class="pure-u-1-1">
+				</div>
+			</div>
+			<div id="about-wrapper">
+				<h1>About FastMath</h1>
+				<p>FastMath is a tool designed to help students practice calculus. In class,
+				students face new concepts at a rapid pace, and through their homework they
+				rarely see the same type of problem more than once. The goal of FastMath is
+				to help students to master simple forms of problems so that they can more
+				quickly execute harder ones that they may encounter.</p>
+				<p>FastMath was initially developed as a Hackathon project by a team of
+				Computer Engineering students:
+				<a href="http://stephenjust.ca/">Stephen Just</a>,
+				<a href="http://stefanm.ca/">Stefan Martynkiw</a> and
+				<a href="http://ualberta.ca/~jortt/">Jacob Ortt.</a> The initial version of
+				FastMath was developed using a combination of PHP and Python 2, however it
+				has since been completely rewritten using the Django framework in Python 3.</p>
+				
+				<h1>Open Source Credits</h1>
+				<ul>
+					<li><a href="http://jquery.com">jQuery 2.1</a>: Released under the MIT license</li>
+					<li><a href="http://chancejs.com">ChanceJS</a>: Released under the MIT license</li>
+					<li><a href="http://sympy.org">SymPy</a>: Released under <a href="https://github.com/sympy/sympy/blob/master/LICENSE">open source license</a></li>
+					<li><a href="http://mathdox.org/formulaeditor/">MathDox FormulaEditor</a>: Released under GNU LGPL 2.1</li>
+					<li><a href="http://mathjax.org">MathJax</a>: Released under Apache License 2.0</li>
+				</ul>
+			</div>
+		</div>
+    </body>
+</html>

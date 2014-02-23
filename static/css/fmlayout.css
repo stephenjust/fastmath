@@ -14,7 +14,7 @@ body{
 }
 
 .play-button{
-	width: 200px;
+	text-align: center;
 	margin: 20px auto;
 }
 
@@ -82,4 +82,18 @@ body{
 #end-score{
 	font-size: 50px;
 	color: rgb(55, 96, 146);
+}
+
+#about-wrapper{
+	padding: 20px;
+	width: 800px;
+	margin: 0 auto;
+	border: 2px solid;
+	border-radius: 20px;
+}
+#about-wrapper h1{
+	border-bottom: 1px solid #CCCCCC;
+}
+#about-wrapper p{
+	margin: 1em 0;
 }

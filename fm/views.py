@@ -15,6 +15,11 @@ def home(request):
 			'seed': random.randint(1000, 99999999999)}
 	return render(request, 'index.html', {'game': game})
 
+@require_http_methods(["GET"])
+@gzip_page
+def about(request):
+	return render(request, 'about.html')
+
 @require_http_methods(["POST"])
 @gzip_page
 @ensure_csrf_cookie

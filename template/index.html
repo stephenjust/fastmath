@@ -51,7 +51,8 @@ is to solve as many
 				<form method="POST" action="{{ game.url }}">{% csrf_token %}
 					<input type="hidden" name="seed" value="{{ game.seed }}" />
 					<input type="submit" class="button-xlarge pure-button play" value="Play Now!" />
-				</form>
+				</form><br />
+				<a href="/about/">About FastMath</a>
             </div>
             <div>
 
