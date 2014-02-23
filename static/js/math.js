@@ -44,7 +44,7 @@ $(window).load(function() {
 		},
 		'check_answer': function(){
 			var c = new Chance(this.question_seed());
-			var qtype = this.types[Math.floor(c.random()*1000) % this.types.length];
+			var qtype = c.pick(this.types);
 			$.ajax('/math/' + qtype + '/' + this.question_seed() + '/check/', {
 				type: 'POST',
 				dataType: 'json',
@@ -66,6 +66,7 @@ $(window).load(function() {
 						$("#incorrect-answer").hide();
 						game.question += 1;
 						game.load_question();
+						drawComic(game.seed, game.question - 1);
 					}
 				}
 			});

@@ -15,6 +15,11 @@
         <link rel="stylesheet" href="{% static 'css/fmlayout.css' %}">
         <script type="text/javascript" src="{% static 'js/jquery-2.1.0.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/comic.js' %}"></script>
+		<script type="text/javascript">
+		$(window).load(function() {
+			drawComic({{ game.seed }}, {{ game.score }});
+		});
+		</script>
     </head>
     <body>
         <div id="content">
