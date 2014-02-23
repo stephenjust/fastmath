@@ -22,7 +22,8 @@ def play(request):
 	game = {'url': "/game/",
 			'seed': request.POST['seed'],
 			'end_url': "/end/",
-			'types': json.dumps(['derivPolynomial'])}
+			'types': json.dumps(['derivPolynomial',
+								 'integPolynomial'])}
 	return render(request, 'game.html', {'game': game})
 
 @require_http_methods(["POST"])
