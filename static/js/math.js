@@ -13,7 +13,7 @@ $(window).load(function() {
 			for (i = 0; i < this.question; i++) {
 				n = c.random();
 			}
-			return Math.floor(n*10000000);
+			return Math.floor(n*100000);
 		},
 		'show_math': function(){
 			$('#loader').hide();
