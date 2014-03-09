@@ -29,7 +29,13 @@ class Problem:
 		""" Take MathML input and determine if it is the correct answer """
 		if input is None:
 			return False
-		if expand(parse_expr(mmlparser.convert(input))) == expand(self.problem_statement.doit()):
+		converted_input = mmlparser.convert(input)
+		try:
+			parsed_input = parse_expr(converted_input)
+		except SyntaxError:
+			print('Sympy failed to parse the user\'s input')
+			return False
+		if expand(parsed_expr) == expand(self.problem_statement.doit()):
 			return True
 		else:
 			return False
