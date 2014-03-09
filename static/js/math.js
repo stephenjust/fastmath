@@ -26,7 +26,7 @@ $(window).load(function() {
 		'load_question': function(){
 			var c = new Chance(this.question_seed());
 			var qtype = c.pick(this.types);
-			$.ajax('/math/' + qtype + '/' + this.question_seed(), {
+			$.ajax('/math/' + qtype + '/' + this.question_seed() + '/', {
 				dataType: 'json',
 				error: function(jqx, stat, err) {
 					console.error("Failed to load question.");
