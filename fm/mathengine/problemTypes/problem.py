@@ -30,10 +30,12 @@ class Problem:
 		if input is None:
 			return False
 		converted_input = mmlparser.convert(input)
+		if len(converted_input.strip()) == 0:
+			return False
 		try:
 			parsed_input = parse_expr(converted_input)
 		except SyntaxError:
-			print('Sympy failed to parse the user\'s input')
+			print('Sympy failed to parse the user\'s input: %s' % converted_input)
 			return False
 		if expand(parsed_expr) == expand(self.problem_statement.doit()):
 			return True

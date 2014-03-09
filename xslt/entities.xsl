@@ -273,10 +273,11 @@
 <!--		<xsl:when test="starts-with($content,'&#x022F0;')"><xsl:value-of select="' '" /><xsl:call-template name="replaceEntities"><xsl:with-param name="content" select="substring-after($content, '&#x022F0;')"/></xsl:call-template></xsl:when>		three dots, ascending -->
 		<xsl:when test="starts-with($content,'&#x022F1;')"><xsl:value-of select="'\ddots '" /><xsl:call-template name="replaceEntities"><xsl:with-param name="content" select="substring-after($content, '&#x022F1;')"/></xsl:call-template></xsl:when>		<!--/ddots, three dots, descending -->
 
-<!-- ====================================================================== -->		
-		<xsl:when test="starts-with($content,'&#x025A1;')"><xsl:value-of select="'\square '" /><xsl:call-template name="replaceEntities"><xsl:with-param name="content" select="substring-after($content, '&#x025A1;')"/></xsl:call-template></xsl:when>	<!--/square, square --> <!-- Required amssymb -->
-		<xsl:when test="starts-with($content,'&#x025AA;')"><xsl:value-of select="'\blacksquare '" /><xsl:call-template name="replaceEntities"><xsl:with-param name="content" select="substring-after($content, '&#x025AA;')"/></xsl:call-template></xsl:when>	<!--/blacksquare, square, filled  --> <!-- Required amssymb -->
-		
+<!-- "Square" characters -->
+		<xsl:when test="starts-with($content,'&#x025A1;')"><xsl:value-of select="' '" /><xsl:call-template name="replaceEntities"><xsl:with-param name="content" select="substring-after($content, '&#x025A1;')"/></xsl:call-template></xsl:when>	<!--/square, square --> <!-- Required amssymb -->
+		<xsl:when test="starts-with($content,'&#x025AA;')"><xsl:value-of select="' '" /><xsl:call-template name="replaceEntities"><xsl:with-param name="content" select="substring-after($content, '&#x025AA;')"/></xsl:call-template></xsl:when>	<!--/blacksquare, square, filled  --> <!-- Required amssymb -->
+
+<!-- ====================================================================== -->	
 		<xsl:when test='starts-with($content,"&apos;")'><xsl:value-of select='"\text{&apos;}"' /><xsl:call-template name="replaceEntities"><xsl:with-param name="content" select='substring-after($content, "&apos;")'/></xsl:call-template></xsl:when><!-- \text required amslatex -->
 		<xsl:when test='starts-with($content,"(")'><xsl:value-of select='"("' /><xsl:call-template name="replaceEntities"><xsl:with-param name="content" select="substring-after($content, '(')"/></xsl:call-template></xsl:when>
 		<xsl:when test='starts-with($content,")")'><xsl:value-of select='")"' /><xsl:call-template name="replaceEntities"><xsl:with-param name="content" select="substring-after($content, ')')"/></xsl:call-template></xsl:when>
