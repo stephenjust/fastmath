@@ -69,8 +69,19 @@ body{
 	height: 150px;
 }
 
+#answer-container {
+	overflow: auto;
+}
+#answer-prefix {
+	display: inline-block;
+	margin-left: 70px;
+}
+#answer-postfix {
+	display: inline-block;
+	margin-right: 70px;
+}
 #answer{
-	margin: 0 70px;
+	display: inline-block;
 }
 
 #incorrect-answer{

@@ -24,7 +24,13 @@ class Problem:
 		
 	def get_statement(self):
 		return latex(self.problem_statement)
-	
+
+	def get_answer_prefix(self):
+		return ""
+
+	def get_answer_postfix(self):
+		return ""
+
 	def check(self, input):
 		""" Take MathML input and determine if it is the correct answer """
 		if input is None:
@@ -37,7 +43,7 @@ class Problem:
 		except SyntaxError:
 			print('Sympy failed to parse the user\'s input: %s' % converted_input)
 			return False
-		if expand(parsed_expr) == expand(self.problem_statement.doit()):
+		if expand(parsed_input) == expand(self.problem_statement.doit()):
 			return True
 		else:
 			return False

@@ -23,8 +23,7 @@ var rights = new Array(
     "manRight1",
 	"manRight2",
 	"manRight3",
-	"manRight4",
-	"manRight5"
+	"manRight4"
 );
 
 var questions = new Array(
@@ -73,13 +72,12 @@ var decorations = [
 
 var c1;
 var ctx1;
-//var c2 = document.getElementById("comic-canvas2");
-//var ctx2 = c2.getContext("2d");
-Math.seed = 3;
 
 function drawComic(seed, step) {
     c1 = document.getElementById("comic-canvas1");
     ctx1 = c1.getContext("2d");
+	// Clear the canvas
+	ctx1.clearRect(0, 0, c1.width, c1.height);
     
     if (step >= 1) {
         drawBackground(seed);
@@ -101,40 +99,31 @@ function drawComic(seed, step) {
     }
 }
 
-// From http://indiegamr.com/generate-repeatable-random-numbers-in-js/
-// in order to work 'Math.seed' must NOT be undefined,
-// so in any case, you HAVE to provide a Math.seed
-Math.seededRandom = function(max, min) {
-	var rnd = max - min;
-	
-	return Math.seed % rnd;
-}
-
 
 function drawBackground(seed) {
-    Math.seed = seed % 500;
-    var bgImage = backgrounds[Math.seededRandom(0, backgrounds.length)];
+	var c = new Chance(seed);
+    var bgImage = c.pick(backgrounds);
 	var bg = document.getElementById(bgImage);
 	ctx1.drawImage(bg,0,200);
 }
 
 function drawManLeft(seed){
-	Math.seed = seed % 500;
-	var manLeft = lefts[Math.seededRandom(0, lefts.length)]
+	var c = new Chance(seed);
+	var manLeft = c.pick(lefts);
 	var ml = document.getElementById(manLeft);
 	ctx1.drawImage(ml,100,100);
 }
 
 function drawManRight(seed){
-	Math.seed = seed % 500;
-	var manRight = rights[Math.seededRandom(0, rights.length)]
+	var c = new Chance(seed);
+	var manRight = c.pick(rights);
 	var mr = document.getElementById(manRight);
 	ctx1.drawImage(mr,500,100);
 }
 
 function writeQuestion(seed){
-	Math.seed = seed % 500;
-	var question = questions[Math.seededRandom(0, questions.length)];
+	var c = new Chance(seed);
+	var question = c.pick(questions);
 	ctx1.beginPath();
 	ctx1.moveTo(200, 100);
 	ctx1.lineTo(300, 35);
@@ -145,8 +134,8 @@ function writeQuestion(seed){
 }
 
 function writeAnswer(seed){
-	Math.seed = seed % 500;
-	var answer = answers[Math.seededRandom(0, answers.length)];
+	var c = new Chance(seed);
+	var answer = c.pick(answers);
 	ctx1.beginPath();
 	ctx1.moveTo(550, 100);
 	ctx1.lineTo(550, 50);
@@ -157,8 +146,8 @@ function writeAnswer(seed){
 }
 
 function writePunchline(seed){
-	Math.seed = seed % 500;
-	var punchline = punchlines[Math.seededRandom(0, punchlines.length)];
+	var c = new Chance(seed);
+	var punchline = c.pick(punchlines);
 	ctx1.beginPath();
 	ctx1.moveTo(210, 100);
 	ctx1.lineTo(320, 65);

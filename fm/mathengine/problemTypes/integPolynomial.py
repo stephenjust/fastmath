@@ -17,3 +17,6 @@ class integPolynomial(problem.Problem):
 			exponent = nexponents.pop(0)
 			polynomial += random.choice(self.coefficients) * (exponent + 1) * x ** exponent
 		self.problem_statement = Integral(polynomial, x)
+
+	def get_answer_postfix(self):
+		return("+C")

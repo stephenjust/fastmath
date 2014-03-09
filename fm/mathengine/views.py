@@ -14,7 +14,9 @@ def problem(request, problem_type, seed):
 	if pclass is None:
 		raise Http404
 	p = pclass(seed)
-	return HttpResponse(json.dumps({'latex': p.get_statement()}))
+	return HttpResponse(json.dumps({'latex': p.get_statement(),
+									'prefix': p.get_answer_prefix(),
+									'postfix': p.get_answer_postfix()}))
 
 @require_http_methods(["POST"])
 def check(request, problem_type, seed):

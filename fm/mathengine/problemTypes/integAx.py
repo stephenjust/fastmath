@@ -13,3 +13,6 @@ class integAx(problem.Problem):
 		x = self.x
 		eqn = coefficient * base ** x
 		self.problem_statement = Integral(eqn, x)
+
+	def get_answer_postfix(self):
+		return("+C")

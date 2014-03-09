@@ -13,7 +13,7 @@ $(window).load(function() {
 			for (i = 0; i < this.question; i++) {
 				n = c.random();
 			}
-			return Math.floor(n*100000);
+			return Math.floor(n*100000000);
 		},
 		'show_math': function(){
 			$('#loader').hide();
@@ -32,12 +32,29 @@ $(window).load(function() {
 					console.error("Failed to load question.");
 				},
 				success: function(data, status, jqx) {
+					if (data.postfix !== "") {
+						$('#answer-postfix').html("$$" + data.postfix + "$$");
+					} else {
+						$('#answer-postfix').html('');
+					}
+					if (data.prefix !== "") {
+						$('#answer-prefix').html("$$" + data.prefix + "$$");
+					} else {
+						$('#answer-prefix').html('');
+					}
 					$('#question').html("$$" + data.latex + "$$");
 					$('#answer').html('<textarea id="formula1" name="formula1" class="mathdoxformula"></textarea>');
-					var textarea = document.getElementById("formula1");
-					org.mathdox.formulaeditor.FormulaEditor.updateByTextAreas(textarea);
-					org.mathdox.formulaeditor.FormulaEditor.getEditorByTextArea(textarea).focus();
-					MathJax.Hub.Typeset(document.getElementById("question"), game.show_math());
+					try {
+						org.mathdox.formulaeditor.FormulaEditor.updateByTextAreas("formula1");
+						org.mathdox.formulaeditor.FormulaEditor.getEditorByTextArea("formula1").focus();
+					} catch(err) {
+						console.warn("Something happened while loading the formula editor!");
+						console.warn(err);
+					}
+					MathJax.Hub.Queue(["Typeset",MathJax.Hub,"answer-prefix"],
+									  ["Typeset",MathJax.Hub,"answer-postfix"],
+									  ["Typeset",MathJax.Hub,"question"]);
+					game.show_math();
 					game.start_timer();
 				}
 			});
