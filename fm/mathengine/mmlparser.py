@@ -7,8 +7,17 @@ XSLT_DIR = os.path.join(fm.settings.BASE_DIR, 'xslt')
 
 def convert(input):
 	if input is None or input == "None" or len(input) == 0: return None
-	styletree = etree.parse(open(os.path.join(XSLT_DIR, 'mmltex.xsl')))
-	transform = etree.XSLT(styletree)
-	inputx = etree.XML(input)
-	result = transform(inputx)
-	return str(result)[1:-1]
+	try:
+		xslfile = open(os.path.join(XSLT_DIR, 'mmltex.xsl'))
+	except IOError:
+		print('Failed to open XSL file')
+		raise
+	try:
+		styletree = etree.parse(xslfile)
+		transform = etree.XSLT(styletree)
+		inputx = etree.XML(input)
+		result = transform(inputx)
+	except:
+		print('Failed to transform input')
+		raise
+	return str(result)

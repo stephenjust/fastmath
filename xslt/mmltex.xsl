@@ -37,9 +37,7 @@
 <xsl:strip-space elements="m:*"/>
 
 <xsl:template match="m:math">
-	<xsl:text>&#x00024;</xsl:text>
 	<xsl:apply-templates/>
-	<xsl:text>&#x00024;</xsl:text>
 </xsl:template>
 
 </xsl:stylesheet>
