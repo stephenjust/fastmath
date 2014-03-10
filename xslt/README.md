@@ -1,5 +1,5 @@
-README for the XSLT MathML Library
-==================================
+XSLT MathML Library
+===================
 
 XSLT MathML Library is a set of XSLT stylesheets to transform
 MathML 2.0 to LaTeX.
@@ -7,49 +7,35 @@ MathML 2.0 to LaTeX.
 For more information, see
 http://www.raleigh.ru/MathML/mmltex/index.php?lang=en
 
-Manifest
---------
+Modifications
+-------------
 
-README        this file
-mmltex.xsl
-tokens.xsl
-glayout.xsl
-scripts.xsl
-tables.xsl
-entities.xsl
-cmarkup.xsl
+This library has been adapted to transform MathML into a variation of ASCII math that Sympy can
+parse. This library is modified as new features are needed and problems are developed. for use in
+FastMath. As such, the modified version of the library that we use no longer generates valid LaTeX.
 
 Use
 ---
 
 There are two ways of using the library:
 
-    * Use a local copy of the library.
+* Use a local copy of the library.
+  1. Download the distribution (see below).
+  2. Unpack the distribution, using unzip.
+  3. In your stylesheet import or include either the main stylesheet, mmltex.xsl, or the stylesheet module you
+     wish to use, such as tokens.xsl. This example assumes that the distribution has been extracted into the same
+     directory as your own stylesheet: `<xsl:import href="mmltex.xsl"/>`
 
-        1. Download the distribution (see below).
-
-        2. Unpack the distribution, using unzip.
-
-        3. In your stylesheet import or include either the main
-           stylesheet, mmltex.xsl, or the stylesheet module you
-           wish to use, such as tokens.xsl. This example assumes
-           that the distribution has been extracted into the same
-           directory as your own stylesheet:
-
-           `<xsl:import href="mmltex.xsl"/>`
-
-    * Import or include either the main stylesheet, or the
-      stylesheet module you wish to use, directly from the library
-      website; http://www.raleigh.ru/MathML/mmltex/. For example:
-
-      `<xsl:import href="http://www.raleigh.ru/MathML/mmltex/mmltex.xsl"/>`
+* Import or include either the main stylesheet, or the
+  stylesheet module you wish to use, directly from the library
+  website; http://www.raleigh.ru/MathML/mmltex/. For example:
+  `<xsl:import href="http://www.raleigh.ru/MathML/mmltex/mmltex.xsl"/>`
 
 Obtaining The Library
 ---------------------
 
 The XSLT MathML Library is available for download as:
-
-    * Zip file: http://www.raleigh.ru/MathML/mmltex/mmltex.zip
+* Zip file: http://www.raleigh.ru/MathML/mmltex/mmltex.zip
 
 Copyright
 ---------
