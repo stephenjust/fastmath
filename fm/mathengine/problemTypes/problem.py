@@ -1,5 +1,5 @@
 from sympy import *
-from sympy.parsing.sympy_parser import parse_expr
+from sympy.parsing.sympy_parser import parse_expr, standard_transformations, implicit_multiplication
 import random
 import fm.mathengine.mmlparser as mmlparser
 
@@ -35,11 +35,12 @@ class Problem:
 		""" Take MathML input and determine if it is the correct answer """
 		if input is None:
 			return False
+		transformations = (standard_transformations + (implicit_multiplication,))
 		converted_input = mmlparser.convert(input)
 		if len(converted_input.strip()) == 0:
 			return False
 		try:
-			parsed_input = parse_expr(converted_input)
+			parsed_input = parse_expr(converted_input, transformations=transformations)
 		except SyntaxError:
 			print('Sympy failed to parse the user\'s input: %s' % converted_input)
 			return False
