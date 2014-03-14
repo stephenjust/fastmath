@@ -10,7 +10,10 @@ class integPolynomial(problem.Problem):
 
 	def generate_problem(self):
 		nterms = random.choice(self.terms)
-		nexponents = random.sample(self.exponents, nterms)
+		if nterms == 1:
+			nexponents = [random.choice(self.exponents)]
+		else:
+			nexponents = random.sample(self.exponents, nterms)
 		polynomial = 0
 		x = self.x
 		for i in range(0, nterms):
