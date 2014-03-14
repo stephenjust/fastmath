@@ -5,6 +5,7 @@ from fm.mathengine.problemTypes.derivAx import *
 from fm.mathengine.problemTypes.integAx import *
 from fm.mathengine.problemTypes.derivTrig import *
 from fm.mathengine.problemTypes.integTrig import *
+from fm.mathengine.problemTypes.derivLn import *
 
 def get_problem_class(str):
 	try:

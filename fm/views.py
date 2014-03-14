@@ -32,7 +32,8 @@ def play(request):
 								 'derivAx',
 								 'integAx',
 								 'derivTrig',
-								 'integTrig'])}
+								 'integTrig',
+								 'derivLn'])}
 	return render(request, 'game.html', {'game': game})
 
 @require_http_methods(["POST"])
