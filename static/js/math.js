@@ -44,6 +44,9 @@ $(window).load(function() {
 					}
 					$('#question').html("$$" + data.latex + "$$");
 					$('#answer').html('<textarea id="formula1" name="formula1" class="mathdoxformula"></textarea>');
+					while(document.getElementById("formula1") == "undefined") {
+						setTimeout(console.warn("Text area not inserted into DOM yet1"), 250);
+					}
 					try {
 						org.mathdox.formulaeditor.FormulaEditor.updateByTextAreas("formula1");
 						org.mathdox.formulaeditor.FormulaEditor.getEditorByTextArea("formula1").focus();
