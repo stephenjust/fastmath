@@ -30,7 +30,9 @@ def play(request):
 			'types': json.dumps(['derivPolynomial',
 								 'integPolynomial',
 								 'derivAx',
-								 'integAx'])}
+								 'integAx',
+								 'derivTrig',
+								 'integTrig'])}
 	return render(request, 'game.html', {'game': game})
 
 @require_http_methods(["POST"])
