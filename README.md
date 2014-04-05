@@ -8,8 +8,6 @@ How to Play
 
 The concept of FastMath is simple: the system will generate a math problem for you, and you type in the answer as fast as you can. The problem types are designed such that after completing some beginner calculus courses, you should be able to solve these problems mentally with very little trouble.
 
-Note that the math engine cannot understand implicit multiplication. If you have a coefficient on x, for example, you must put a multiplication symbol between it and its coefficient.
-
 
 Preparing Your System
 ---------------------
