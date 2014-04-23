@@ -1,0 +1,4 @@
+Cython==0.20.1
+Django==1.6.2
+lxml==3.3.3
+sympy==0.7.5
