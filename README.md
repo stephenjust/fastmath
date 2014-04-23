@@ -1,6 +1,8 @@
 FastMath
 ========
 
+[![Build Status](https://travis-ci.org/stephenjust/fastmath.png?branch=master)](https://travis-ci.org/stephenjust/fastmath)
+
 Web-app for some speed calculus
 
 How to Play
